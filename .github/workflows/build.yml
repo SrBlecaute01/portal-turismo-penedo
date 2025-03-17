@@ -12,18 +12,12 @@ on:
         type: string
         description: environment to deploy to
         required: true
-      url:
-        type: string
-        description: url of the environment
-        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     environment:
       name: ${{ inputs.environment }}
-      url: ${{ inputs.url }}
 
     steps:
       - name: Checkout
