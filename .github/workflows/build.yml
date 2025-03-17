@@ -7,10 +7,23 @@ on:
     branches: ['develop']
   workflow_dispatch:
   workflow_call:
+    inputs:
+      environment:
+        type: string
+        description: environment to deploy to
+        required: true
+      environment-url:
+        type: string
+        description: url of the environment
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ inputs.environment-url }}
 
     steps:
       - name: Checkout
