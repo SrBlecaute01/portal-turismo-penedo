@@ -16,21 +16,30 @@ concurrency:
 
 jobs:
   build:
+    name: Reusable Build
     uses: ./.github/workflows/build.yml
-    with:
-      environment: github-pages
 
   deploy:
     name: Deploy
     needs: ['build']
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
