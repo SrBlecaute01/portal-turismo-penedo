@@ -1,19 +1,42 @@
 name: Build
 
-runs:
-  using: "composite"
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+on:
+  push:
+    branches: ['develop']
+  pull_request:
+    branches: ['develop']
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        description: environment to deploy to
+        required: true
+      enviroment-url:
+        type: string
+        description: url of the environment
+        required: true
 
-    - name: Set up Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-    - name: Install dependencies
-      run: npm ci
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ inputs.enviroment-url }}
 
-    - name: Build
-      run: npm run build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
