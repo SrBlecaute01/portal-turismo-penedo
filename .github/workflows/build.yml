@@ -1,6 +1,6 @@
 name: Build
 
-jobs:
+runs:
   using: "composite"
   steps:
     - name: Checkout
