@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Reusable build
-        uses: SrBlecaute01/portal-turismo-penedo/.github/workflows/build.yml@main
+        uses: ./.github/workflows/build.yml@main
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
