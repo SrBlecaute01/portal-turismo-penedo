@@ -1,0 +1,52 @@
+:root {
+    --navbar-bg-color: #E6F2FB;
+    --nabvar-text-color: #5A5656;
+    --navbar-active-color: #1D85D9;
+}
+
+.container {
+    height: 105px;
+    min-width: 100vh;
+
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--navbar-bg-color);
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+    font-style: normal;
+    font-weight: 600;
+
+    a {
+        color: var(--nabvar-text-color);
+        text-decoration: none;
+    }
+}
+
+.routes {
+    width: 780px;
+    height: 23px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10%;
+    list-style-type: none;
+
+    li a:hover {
+        color: var(--navbar-active-color);
+    }
+}
+
+.logo {
+    width: 241px;
+    height: 77px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.active {
+    color: var(--navbar-active-color) !important;
+}

@@ -1,0 +1,72 @@
+@import "normalize.css/normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --bg-light: #E6F2FB;
+  --bg-gray-light: #F3F3F3;
+  --white: #FFFFFF;
+  --black: #000000;
+  --primary: #1D85D9;
+  --primary-light: #C5E2FC;
+
+  --text-dark: #5A5656;
+  --text-dark-2: #838484;
+
+  --secondary: #03989e;
+  --text-grey-dark: #3A4050;
+  --text-white: #f7f7f7;
+  --gray-light: #f8f9fa;
+  --grey-input: #eaf1f7;
+  --gray-border-light: #e9ecef;
+  --danger-red: #dc3545;
+  --info-blue: #007bff;
+  --success-green: #28a745;
+  --gray-darker: #6c757d;
+
+  --family-roboto: "Roboto", sans-serif;
+  --family-poppins: "Poppins", sans-serif;
+
+  --font-size-xxsmall: 0.8rem;
+  --font-size-xsmall: 1rem;
+  --font-size-small: 1.2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-mid-lg: 2rem;
+  --font-size-large: 2.4rem;
+  --font-size-mid-xlarge: 3rem;
+  --font-size-xlarge: 3.2rem;
+  --font-size-xxlarge: 4.8rem;
+  --font-size-xxxlarge: 6.4rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-black: 900;
+  --font-weight-bold: bold;
+
+  --border-radius-small: 0.4rem;
+  --border-radius-medium: 0.8rem;
+  --border-radius-large: 1.6rem;
+  --border-radius-xlarge: 3.2rem;
+  --border-radius-xxlarge: 6.4rem;
+  --border-radius-xxxlarge: 12.8rem;
+
+  --shadow-xsmall: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  --shadow-small: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 1.6rem 3.2rem rgba(0, 0, 0, 0.1);
+  --shadow-xlarge: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.1);
+  --shadow-xxlarge: 0 6.4rem 12.8rem rgba(0, 0, 0, 0.1);
+  --shadow-xxxlarge: 0 12.8rem 25.6rem rgba(0, 0, 0, 0.1);
+  --shadow-especial-blue: 0px -10px 195px #057ff155 inset;
+
+  --transition: all 0.3s ease;
+}
+
+* {
+  font-family: var(--family-roboto), var(--family-poppins), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
