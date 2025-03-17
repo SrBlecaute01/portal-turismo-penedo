@@ -12,7 +12,7 @@ on:
         type: string
         description: environment to deploy to
         required: true
-      enviroment-url:
+      url:
         type: string
         description: url of the environment
         required: true
@@ -23,7 +23,7 @@ jobs:
 
     environment:
       name: ${{ inputs.environment }}
-      url: ${{ inputs.enviroment-url }}
+      url: ${{ inputs.url }}
 
     steps:
       - name: Checkout
