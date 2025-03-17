@@ -16,28 +16,16 @@ concurrency:
 
 jobs:
   deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    name: Deploy
-    runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      - name: Reusable build
+        uses: SrBlecaute01/portal-turismo-penedo/blob/main/.github/workflows/deploy.yml@main
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
