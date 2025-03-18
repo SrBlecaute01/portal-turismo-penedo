@@ -19,7 +19,7 @@ jobs:
       - uses: rossjrw/pr-preview-action@v1
         id: preview-step
         with:
-          source-dir: ./build/
+          source-dir: ./dist/
           preview-branch: ${{ env.PREVIEW_BRANCH }}
           comment: false
 
