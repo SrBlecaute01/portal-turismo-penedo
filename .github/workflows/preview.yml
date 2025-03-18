@@ -9,15 +9,12 @@ on:
       - closed
 env:
   PREVIEW_BRANCH: gh-pages
-  VITE_BASE_PATH: /portal-turismo-penedo/
+  VITE_BASE_PATH: /portal-turismo-penedo/${{github.event.pull_request.number}}
 
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup enviroment variable
-        run: echo "VITE_BASE_PATH=$VITE_BASE_PATH${{ steps.preview-step.outputs.preview-url-path }}" >> $GITHUB_ENV
-
       - uses: actions/checkout@v4
       - run: npm i && npm run build -- --mode development
 
