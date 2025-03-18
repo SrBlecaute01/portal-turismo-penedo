@@ -1,5 +1,6 @@
 name: Deploy PR preview
 concurrency: preview-${{ github.ref }}
+
 on:
   pull_request:
     types:
@@ -7,6 +8,7 @@ on:
       - reopened
       - synchronize
       - closed
+
 env:
   PREVIEW_BRANCH: gh-pages
   VITE_BASE_PATH: /portal-turismo-penedo/${{github.event.pull_request.number}}
@@ -16,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i && npm run build -- --mode development
+      - run: npm i && npm run build -- --mode development && echo "$VITE_BASE_PATH"
 
       - uses: rossjrw/pr-preview-action@v1
         id: preview-step
