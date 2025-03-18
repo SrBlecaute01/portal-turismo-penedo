@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup enviroment variable
-        run: echo ::set-env name=STEPVAR::${{ env.VITE_BASE_PATH }}${{ steps.preview-step.outputs.preview-url-path }}
+        run: echo "${{ env.VITE_BASE_PATH }}${{ steps.preview-step.outputs.preview-url-path }}" >> $GITHUB_ENV
 
       - uses: actions/checkout@v4
       - run: npm i && npm run build -- --mode development
