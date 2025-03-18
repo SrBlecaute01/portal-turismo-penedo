@@ -11,14 +11,14 @@ on:
 
 env:
   PREVIEW_BRANCH: gh-pages
-  VITE_BASE_PATH: /portal-turismo-penedo/${{github.event.pull_request.number}}
+  VITE_BASE_PATH: /portal-turismo-penedo/pr-preview/pr-${{github.event.pull_request.number}}
 
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i && npm run build -- --mode development && echo "$VITE_BASE_PATH"
+      - run: npm i && npm run build -- --mode development --define import.meta.env.VITE_BASE_URL='${{ env.VITE_BASE_URL }}'
 
       - uses: rossjrw/pr-preview-action@v1
         id: preview-step
