@@ -9,12 +9,13 @@ on:
       - closed
 env:
   PREVIEW_BRANCH: gh-pages
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i && npm run build
+      - run: npm i && npm run build -- --mode development
 
       - uses: rossjrw/pr-preview-action@v1
         id: preview-step
@@ -32,6 +33,7 @@ jobs:
             :---:
             | <p></p> :rocket: View preview at <br> ${{ steps.preview-step.outputs.preview-url }} <br><br>
             | <h6>Built to branch [`${{ env.PREVIEW_BRANCH }}`](${{ github.server_url }}/${{ github.repository }}/tree/${{ env.PREVIEW_BRANCH }}) at ${{ steps.preview-step.outputs.action-start-time }}. <br> Preview will be ready when the [GitHub Pages deployment](${{ github.server_url }}/${{ github.repository }}/deployments) is complete. <br><br> </h6>
+            | <h6> ${{ steps.preview-step.outputs.pages-base-url }}} and ${{ steps.preview-step.outputs.preview-url-path }} <br> </h6>
 
       - uses: marocchino/sticky-pull-request-comment@v2
         if: steps.preview-step.outputs.deployment-action == 'remove' && env.deployment_status == 'success'
