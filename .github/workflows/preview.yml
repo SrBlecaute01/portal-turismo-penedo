@@ -9,11 +9,15 @@ on:
       - closed
 env:
   PREVIEW_BRANCH: gh-pages
+  VITE_BASE_PATH: /portal-turismo-penedo/
 
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup enviroment variable
+        run: echo ::set-env name=STEPVAR::${{ env.VITE_BASE_PATH }}${{ steps.preview-step.outputs.preview-url-path }}
+
       - uses: actions/checkout@v4
       - run: npm i && npm run build -- --mode development
 
