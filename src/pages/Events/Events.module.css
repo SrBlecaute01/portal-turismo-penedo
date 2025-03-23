@@ -1,0 +1,8 @@
+.horizontal_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  gap: 15px;
+}
