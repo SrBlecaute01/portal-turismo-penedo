@@ -1,0 +1,111 @@
+/* Rota.css */
+.rota-container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .header-image {
+    position: relative;
+    height: 400px;
+    background-image: url('path-to-your-header-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #ff6347; /* Cor terracota similar à da imagem */
+  }
+  
+  .title-overlay {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+  }
+  
+  .title-overlay h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.7;
+  }
+  
+  .dot.active {
+    opacity: 1;
+    background-color: #007bff;
+  }
+  
+  .content-section {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main-content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .info-section {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 30px;
+  }
+  
+  .left-image {
+    flex-direction: row;
+  }
+  
+  .right-image {
+    flex-direction: row-reverse;
+  }
+  
+  .image-container {
+    flex: 0 0 40%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .section-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .section-content h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .section-content p {
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .info-section {
+      flex-direction: column;
+    }
+    
+    .right-image {
+      flex-direction: column;
+    }
+  }
