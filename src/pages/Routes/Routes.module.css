@@ -33,3 +33,15 @@
         font-weight: 600;
     }
 }
+
+.routesContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    row-gap: 32px;
+    column-gap: 55px;
+}

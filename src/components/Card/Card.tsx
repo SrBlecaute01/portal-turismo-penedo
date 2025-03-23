@@ -1,7 +1,6 @@
 import {NavLink, To} from "react-router-dom";
 import styles from './Card.module.css';
 
-
 interface CardProps {
   title: string;
   to: To;
@@ -15,12 +14,8 @@ interface CardProps {
 function Card({title, to, stars, imageUrl, date, routeDay, description}: CardProps) {
   let dayNumber: string = "";
   let monthNumber: number = 1;
-  /* let monthNames = ["Janeiro", "Fevereiro", "Março", 
-    "Abril", "Maio", "Junho", 
-    "Julho", "Agosto", "Setembro",
-    "Outubro", "Novembro", "Dezembro"];
-  */
   let monthNamesAbbr: string[] = [];
+
   if (date) {
     dayNumber = date.getDate().toString();
     monthNumber = date.getMonth();
@@ -28,14 +23,11 @@ function Card({title, to, stars, imageUrl, date, routeDay, description}: CardPro
       console.error("Invalid month number: " + monthNumber);
       monthNumber = 1;
     }
-    monthNamesAbbr = ["jan", "fev", "mar",
-      "abr", "maio", "jun", 
-      "jul", "ago", "set",
-      "out", "nov", "dez"];
+    monthNamesAbbr = ["jan", "fev", "mar", "abr", "maio", "jun", "jul", "ago", "set", "out", "nov", "dez"];
   }
+
   return (
     <div className={styles.card}>
-      
       {Boolean(imageUrl) &&
         <img className={styles.card_img} src={imageUrl} alt={title}/>}
       
@@ -87,7 +79,5 @@ function generateStars(rating: number = -1) {
 
     return <div className={styles.stars}>{starsHtml}</div>;
 }
-
-
 
 export default Card;
