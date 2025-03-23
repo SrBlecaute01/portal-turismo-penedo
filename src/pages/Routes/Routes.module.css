@@ -1,0 +1,53 @@
+.rootContainer {
+    min-height: 100vh;
+}
+
+.carouselContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.carouselText {
+    font-size: 64px;
+    font-weight: bold;
+    user-select: none;
+    color: var(--text-white);
+
+    z-index: 2;
+    position: absolute;
+
+    margin-left: 10%;
+    margin-bottom: 8%;
+
+    align-self: flex-end;
+}
+
+.numberContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 32px;
+        font-weight: 600;
+    }
+}
+
+.routesContainer {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    align-content: center;
+    justify-content: center;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.routesItems {
+    padding: 32px
+}

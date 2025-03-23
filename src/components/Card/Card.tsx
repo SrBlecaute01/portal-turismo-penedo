@@ -1,7 +1,10 @@
 import {NavLink, To} from "react-router-dom";
 import styles from './Card.module.css';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 interface CardProps {
   title: string;
   to: To;
@@ -10,6 +13,7 @@ interface CardProps {
   date?: Date;
   routeDay?: number;
   description?: string;
+<<<<<<< HEAD
   isExpanded?: boolean;
 }
 
@@ -27,6 +31,15 @@ function Card({title, to, stars, imageUrl, date, routeDay, description, isExpand
     "Outubro", "Novembro", "Dezembro"];
   */
   
+=======
+}
+
+function Card({title, to, stars, imageUrl, date, routeDay, description}: CardProps) {
+  let dayNumber: string = "";
+  let monthNumber: number = 1;
+  let monthNamesAbbr: string[] = [];
+
+>>>>>>> develop
   if (date) {
     dayNumber = date.getDate().toString();
     monthNumber = date.getMonth();
@@ -34,11 +47,19 @@ function Card({title, to, stars, imageUrl, date, routeDay, description, isExpand
       console.error("Invalid month number: " + monthNumber);
       monthNumber = 1;
     }
+<<<<<<< HEAD
     
   }
   return (
     <div className={Boolean(isExpanded) ? styles.expanded_card : styles.card}>
       
+=======
+    monthNamesAbbr = ["jan", "fev", "mar", "abr", "maio", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  }
+
+  return (
+    <div className={styles.card}>
+>>>>>>> develop
       {Boolean(imageUrl) &&
         <img className={styles.card_img} src={imageUrl} alt={title}/>}
       
@@ -91,6 +112,9 @@ function generateStars(rating: number = -1) {
     return <div className={styles.stars}>{starsHtml}</div>;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
 export default Card;
