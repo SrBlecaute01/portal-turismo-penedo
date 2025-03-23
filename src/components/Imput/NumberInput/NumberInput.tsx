@@ -1,13 +1,11 @@
-import * as React from 'react';
 import { NumberField } from '@base-ui-components/react/number-field';
 import styles from './NumberInput.module.css';
 import PlusIcon from '../../../assets/svg/plus.svg?react'
 import MinusIcon from '../../../assets/svg/minus.svg?react'
 
-function ExampleNumberField() {
-  const id = React.useId();
+function NumberInput(props: NumberField.Root.Props) {
   return (
-    <NumberField.Root id={id} defaultValue={1} className={styles.Field}>
+    <NumberField.Root {...props}>
       <NumberField.Group className={styles.Group}>
         <NumberField.Decrement className={styles.Decrement}>
           <MinusIcon />
@@ -21,4 +19,4 @@ function ExampleNumberField() {
   );
 }
 
-export default ExampleNumberField
+export default NumberInput

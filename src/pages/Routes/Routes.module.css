@@ -35,13 +35,19 @@
 }
 
 .routesContainer {
+    width: 100%;
+    height: 100%;
+
     display: grid;
     grid-template-columns: auto auto auto;
+
+    align-content: center;
     justify-content: center;
 
     margin-top: 2%;
     margin-bottom: 2%;
+}
 
-    row-gap: 32px;
-    column-gap: 55px;
+.routesItems {
+    padding: 32px
 }

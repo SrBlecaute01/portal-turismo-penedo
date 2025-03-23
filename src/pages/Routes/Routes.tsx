@@ -1,8 +1,9 @@
 import Navbar from "../../components/Navbar";
 import Carousel from "../../components/Carousel";
-import ExampleNumberField from "../../components/Imput/NumberInput/NumberInput.tsx";
 import styles from "./Routes.module.css";
 import RouteCard from "./components/RouteCard";
+import NumberInput from "../../components/Imput/NumberInput/NumberInput.tsx";
+import {useState} from "react";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const routes = [
@@ -51,6 +52,17 @@ const routes = [
 ];
 
 function Routes() {
+  const maxInput = Math.max(...routes.map(route => route.days))
+  const [filteredRoutes, setFilteredRoutes] = useState(routes);
+
+  const handleDaysChange = (days: number | null) => {
+    const filtered = days !== null
+      ? routes.filter((route) => route.days >= days)
+      : routes;
+
+    setFilteredRoutes(filtered);
+  };
+
   return (
     <div className={styles.rootContainer}>
       <Navbar/>
@@ -60,11 +72,16 @@ function Routes() {
       </div>
       <div className={styles.numberContainer}>
         <p>Quantos dias você espera passar ?</p>
-        <ExampleNumberField/>
+        <NumberInput
+          min={1}
+          max={maxInput}
+          defaultValue={1}
+          onValueChange={handleDaysChange}
+        />
       </div>
       <div className={styles.routesContainer}>
-        {routes.map((route) => (
-          <div className={styles.routerItems}>
+        {filteredRoutes.map((route) => (
+          <div className={styles.routesItems}>
             <RouteCard to={route.to} title={route.title} description={route.description} days={route.days} image={route.image}/>
           </div>
         ))}
