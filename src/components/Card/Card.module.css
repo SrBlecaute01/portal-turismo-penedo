@@ -3,7 +3,6 @@
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     /*text-align: center;*/
-    font-family: Arial, sans-serif;
     background: #fff;
     padding-bottom: 10px;
     overflow: hidden;
@@ -15,7 +14,7 @@
     object-fit: cover;
 }
 
-.card_content{
+.card_content {
     padding: 15px 20px;
     display: flex;
     align-items: flex-start;
@@ -81,7 +80,7 @@
     font-size: 16px;
 }
 
-.card_description{
+.card_description {
     color: #505050;
     font-size: 14px;
     margin: 10px 0;

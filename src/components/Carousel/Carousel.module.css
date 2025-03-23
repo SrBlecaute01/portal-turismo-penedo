@@ -1,0 +1,21 @@
+.swiper {
+    --swiper-pagination-bullet-width: 25px !important;
+    --swiper-pagination-bullet-height: 25px !important;
+    --swiper-pagination-bullet-color: #1D85D9;
+
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-inactive-color: #E6F2FB;
+}
+
+.swiperSlide {
+    width: 100%;
+    height: 590px;
+}
+
+.swiperSlide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
