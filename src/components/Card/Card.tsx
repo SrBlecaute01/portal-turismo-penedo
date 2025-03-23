@@ -9,13 +9,23 @@ interface CardProps {
   date?: Date;
   routeDay?: number;
   description?: string;
+  isExpanded?: boolean;
 }
 
-function Card({title, to, stars, imageUrl, date, routeDay, description}: CardProps) {
+let monthNamesAbbr: string[] = ["jan", "fev", "mar",
+  "abr", "maio", "jun", 
+  "jul", "ago", "set",
+  "out", "nov", "dez"];
+
+function Card({title, to, stars, imageUrl, date, routeDay, description, isExpanded}: CardProps) {
   let dayNumber: string = "";
   let monthNumber: number = 1;
-  let monthNamesAbbr: string[] = [];
-
+  /* let monthNames = ["Janeiro", "Fevereiro", "Março", 
+    "Abril", "Maio", "Junho", 
+    "Julho", "Agosto", "Setembro",
+    "Outubro", "Novembro", "Dezembro"];
+  */
+  
   if (date) {
     dayNumber = date.getDate().toString();
     monthNumber = date.getMonth();
@@ -23,11 +33,11 @@ function Card({title, to, stars, imageUrl, date, routeDay, description}: CardPro
       console.error("Invalid month number: " + monthNumber);
       monthNumber = 1;
     }
-    monthNamesAbbr = ["jan", "fev", "mar", "abr", "maio", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+    
   }
-
   return (
-    <div className={styles.card}>
+    <div className={Boolean(isExpanded) ? styles.expanded_card : styles.card}>
+      
       {Boolean(imageUrl) &&
         <img className={styles.card_img} src={imageUrl} alt={title}/>}
       
@@ -79,5 +89,7 @@ function generateStars(rating: number = -1) {
 
     return <div className={styles.stars}>{starsHtml}</div>;
 }
+
+
 
 export default Card;
