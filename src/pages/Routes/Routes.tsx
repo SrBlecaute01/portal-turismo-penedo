@@ -1,64 +1,93 @@
 import Navbar from "../../components/Navbar";
-import "./Routes.css";
+import Carousel from "../../components/Carousel";
+import styles from "./Routes.module.css";
+import RouteCard from "./components/RouteCard";
+import NumberInput from "../../components/Imput/NumberInput/NumberInput.tsx";
+import {useState} from "react";
 
-const rotaData = {
-  title: "Rota 1",
-  mainContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim, leo eu hendrerit feugiat, risus ex placerat nunc, quis varius orci urna sed lectus. Sed vitae rutrum elit, non laoreet nunc. Pellentesque semper ut lacus ac fringilla. Integer sit amet lacinia massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed nec lobortis sem, eu tincidunt arcu. Quisque metus purus, eleifend ac porta eget, fringilla sed velit. Vivamus fringilla ligula tortor, ut laoreet turpis laoreet at. Maecenas dui felis, aliquam id nisl vel, tincidunt viverra est. Donec rhoncus efficitur consectetur. Aenean sit amet maximus purus. Vestibulum maximus varius sem, eu venenatis orci auctor eget. Pellentesque at tincidunt ipsum. Maecenas auctor tristique orci, sed sodales nisl scelerisque id. Duis vitae augue in purus accumsan euismod varius at dui.",
-  sections: [
-    {
-      image: "igreja.jpg",
-      title: "Lorem ipsum dolor",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim, leo eu hendrerit feugiat, risus ex placerat nunc, quis varius orci urna sed lectus. Sed vitae rutrum elit, non laoreet nunc. Pellentesque semper ut lacus ac fringilla. Integer sit amet lacinia massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed nec lobortis sem, eu tincidunt arcu."
-    },
-    {
-      image: "rua-colorida.jpg",
-      title: "Lorem ipsum dolor",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dignissim, leo eu hendrerit feugiat, risus ex placerat nunc, quis varius orci urna sed lectus. Sed vitae rutrum elit, non laoreet nunc. Pellentesque semper ut lacus ac fringilla. Integer sit amet lacinia massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed nec lobortis sem, eu tincidunt arcu."
-    }
-  ]
-};
+const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const routes = [
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 1,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[0].default
+  },
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 3,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[1].default
+  },
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 5,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[2].default
+  },
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 7,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[0].default
+  },
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 15,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[1].default
+  },
+  {
+    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    to: "#",
+    days: 30,
+    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    image: images[2].default
+  },
+];
 
-const Routes = () => {
+function Routes() {
+  const maxInput = Math.max(...routes.map(route => route.days))
+  const [filteredRoutes, setFilteredRoutes] = useState(routes);
+
+  const handleDaysChange = (days: number | null) => {
+    const filtered = days !== null
+      ? routes.filter((route) => route.days >= days)
+      : routes;
+
+    setFilteredRoutes(filtered);
+  };
+
   return (
-    <>
-      <Navbar />
-      <div className="rota-container">
-        <div className="header-image">
-          <div className="title-overlay">
-            <h1>{rotaData.title}</h1>
-          </div>
-          <div className="dots">
-            <span className="dot active"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
-          </div>
-        </div>
-
-        <div className="content-section">
-          <div className="main-content">
-            <p>{rotaData.mainContent}</p>
-          </div>
-
-          {rotaData.sections.map((section, index) => (
-            <div
-              key={index}
-              className={`info-section ${
-                index % 2 === 0 ? "left-image" : "right-image"
-              }`}
-            >
-              <div className="image-container">
-                <img src={section.image} alt={section.title} />
-              </div>
-              <div className="section-content">
-                <h2>{section.title}</h2>
-                <p>{section.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className={styles.rootContainer}>
+      <Navbar/>
+      <div className={styles.carouselContainer}>
+        <Carousel images={images.map(image => image.default)}/>
+        <div className={styles.carouselText}>Nossas rotas</div>
       </div>
-    </>
-  );
-};
+      <div className={styles.numberContainer}>
+        <p>Quantos dias você espera passar ?</p>
+        <NumberInput
+          min={1}
+          max={maxInput}
+          defaultValue={1}
+          onValueChange={handleDaysChange}
+        />
+      </div>
+      <div className={styles.routesContainer}>
+        {filteredRoutes.map((route) => (
+          <div className={styles.routesItems}>
+            <RouteCard to={route.to} title={route.title} description={route.description} days={route.days} image={route.image}/>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default Routes;
