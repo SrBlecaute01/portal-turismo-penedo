@@ -1,0 +1,121 @@
+.card {
+    width: 250px;
+    min-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /*text-align: center;*/
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.card_img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card_content{
+    padding: 15px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.card_date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #6b4eff; /* Roxo */
+    text-transform: uppercase;
+    padding: 5px 3px;
+    font-size: 14px;
+}
+
+.card_routeDay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #6b4eff; /* Roxo */
+    text-transform: uppercase;
+    padding: 5px 3px;
+    font-size: 14px;
+}
+
+.dayNumber{
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+}
+
+.card_info{
+    flex:1;
+}
+
+.card_title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+    color: #000;
+}
+
+.card a, .expanded_card a{
+    text-decoration: none;
+}
+
+.card a:hover, .expanded_card a:hover {
+    color: #3388EE;
+}
+
+.stars {
+    color: gold;
+    font-size: 16px;
+}
+
+.no_stars{
+    color: #b0b0b0;
+    font-size: 16px;
+}
+
+.card_description{
+    color: #505050;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* Expanded Card modifiers */
+.expanded_card{
+    min-width: 250px;
+    flex: 1;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /*text-align: center;*/
+    font-family: Arial, sans-serif;
+    background: #fff;
+    align-content: center;
+    overflow: hidden;
+}
+
+.expanded_card .card_title {
+    font-size: 27px;
+}
+.expanded_card .card_description{
+    font-size: 18px;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .expanded_card{
+        max-width: 350px;
+    }
+}

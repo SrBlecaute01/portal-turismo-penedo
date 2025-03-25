@@ -5,13 +5,19 @@
 }
 
 .container {
+    width: 100%;
     height: 105px;
+    margin: 0 auto;
+
     min-width: 100vh;
 
-    margin: 0 auto;
     display: flex;
+    position: relative;
+
     align-items: center;
     justify-content: space-between;
+
+    z-index: 1000;
 
     background: var(--navbar-bg-color);
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
