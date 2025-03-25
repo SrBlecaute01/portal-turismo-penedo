@@ -21,7 +21,7 @@ function AppRouter() {
           <Route path="/eventos" element={<EventsPage/>}/>
           <Route path="/turismo" element={<TourismPage/>}/>
           <Route path="/rotas" element={<RoutesPage/>}/>
-          <Route path="/mapa" element={<MapPage apiKey={""}/>}/>
+          <Route path="/mapa" element={<MapPage />}/>
         </Routes>
       </Suspense>
     </HashRouter>

@@ -1,228 +1,182 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, StandaloneSearchBox } from '@react-google-maps/api';
+import React, { useState, useRef, useCallback } from 'react';
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  StandaloneSearchBox
+} from '@react-google-maps/api';
 import Navbar from '../../components/Navbar';
-
-interface Location {
-  lat: number;
-  lng: number;
-}
-
-interface Place {
-  id: string;
-  name: string;
-  location: Location;
-}
-
-interface MapComponentProps {
-  apiKey: string; // Chave da API do Google Maps
-  initialZoom?: number;
-}
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import styles from './Map.module.css';
+import { Location, Place, MapComponentProps } from './types';
 
 const PENEDO_COORDINATES: Location = {
   lat: -10.2906,
   lng: -36.5808
 };
 
+const API_KEY = "AIzaSyCpJCXqQOFdgJs3TJZJ1m-ZSptlTJh-8vI";
+
 const Map: React.FC<MapComponentProps> = ({
-  apiKey,
   initialZoom = 15
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [center, setCenter] = useState<Location>(PENEDO_COORDINATES);
   const [markers, setMarkers] = useState<Place[]>([]);
   const [zoom, setZoom] = useState<number>(initialZoom);
   const [selectedFilter, setSelectedFilter] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
 
-  const mapContainerStyle = {
+  const mapContainerStyle: React.CSSProperties = {
     width: '100%',
-    height: '500px',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+    height: '100vh',
+    position: 'relative',
   };
 
   const mapOptions = {
-    disableDefaultUI: false,
+    disableDefaultUI: true,
     zoomControl: true,
-    streetViewControl: true,
-    mapTypeControl: true,
-    fullscreenControl: true,
-  };
-
-  const searchBoxStyle = {
-    boxSizing: 'border-box' as const,
-    border: '1px solid transparent',
-    width: '240px',
-    height: '40px',
-    padding: '0 12px',
-    borderRadius: '3px',
-    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
-    fontSize: '14px',
-    outline: 'none',
-    textOverflow: 'ellipses',
-    marginTop: '10px',
+    streetViewControl: false,
+    mapTypeControl: false,
+    fullscreenControl: false,
   };
 
   const filterOptions = [
-    { id: '', label: 'Popular aqui' },
-    { id: 'filter1', label: 'Filtro 1' },
-    { id: 'filter2', label: 'Filtro 2' },
-    { id: 'filter3', label: 'Filtro 3' },
-    { id: 'filter4', label: 'Filtro 4' }
+    { id: 'hoteis', label: 'Hotéis' },
+    { id: 'restaurantes', label: 'Restaurantes' },
+    { id: 'pontos-turisticos', label: 'Pontos Turísticos' },
+    { id: 'servicos', label: 'Serviços' }
   ];
+
+  const onLoadScripts = () => {
+    setIsLoaded(true);
+  };
 
   const onSearchBoxLoad = (ref: google.maps.places.SearchBox) => {
     searchBoxRef.current = ref;
   };
 
-  const onMapLoad = (map: google.maps.Map) => {
-    mapRef.current = map;
-  };
-
-  const onPlacesChanged = () => {
-    if (searchBoxRef.current) {
+  const onPlacesChanged = useCallback(() => {
+    if (searchBoxRef.current && isLoaded) {
       const places = searchBoxRef.current.getPlaces();
 
       if (places && places.length > 0) {
-        const newMarkers = places.map((place) => {
-          const location = {
+        const newMarkers: Place[] = places.map((place) => ({
+          id: place.place_id || `marker-${Date.now()}`,
+          name: place.name || 'Local sem nome',
+          location: {
             lat: place.geometry?.location?.lat() || PENEDO_COORDINATES.lat,
             lng: place.geometry?.location?.lng() || PENEDO_COORDINATES.lng
-          };
+          }
+        }));
 
-          return {
-            id: place.place_id || `marker-${Date.now()}`,
-            name: place.name || 'Local sem nome',
-            location
-          };
-        });
+        setMarkers(newMarkers);
 
-        setMarkers([...markers, ...newMarkers]);
-
-        if (places[0].geometry?.location) {
+        const firstPlace = places[0];
+        if (firstPlace.geometry?.location) {
           setCenter({
-            lat: places[0].geometry.location.lat(),
-            lng: places[0].geometry.location.lng()
+            lat: firstPlace.geometry.location.lat(),
+            lng: firstPlace.geometry.location.lng()
           });
           setZoom(16);
         }
       }
     }
-  };
+  }, [isLoaded]);
 
   const applyFilter = (filterId: string) => {
+    if (!isLoaded || !mapRef.current) return;
+
     setSelectedFilter(filterId);
 
-    if (filterId) {
-      const simulatedPlaces: Place[] = [
-        {
-          id: `${filterId}-1`,
-          name: `Local ${filterId} #1`,
-          location: {
-            lat: PENEDO_COORDINATES.lat + (Math.random() * 0.01 - 0.005),
-            lng: PENEDO_COORDINATES.lng + (Math.random() * 0.01 - 0.005)
-          }
-        },
-        {
-          id: `${filterId}-2`,
-          name: `Local ${filterId} #2`,
-          location: {
-            lat: PENEDO_COORDINATES.lat + (Math.random() * 0.01 - 0.005),
-            lng: PENEDO_COORDINATES.lng + (Math.random() * 0.01 - 0.005)
-          }
-        }
-      ];
+    if (searchBoxRef.current) {
+      const penedoBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
+        new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
+      );
+      searchBoxRef.current.setBounds(penedoBounds);
 
-      setMarkers(simulatedPlaces);
-    } else {
-      setMarkers([]);
-      setCenter(PENEDO_COORDINATES);
-      setZoom(initialZoom);
+      const service = new google.maps.places.PlacesService(mapRef.current);
+
+      service.nearbySearch({
+        location: PENEDO_COORDINATES,
+        radius: 5000,
+        type: filterId === 'hoteis' ? 'lodging' :
+              filterId === 'restaurantes' ? 'restaurant' :
+              filterId === 'pontos-turisticos' ? 'tourist_attraction' :
+              filterId === 'servicos' ? 'point_of_interest' : undefined
+      }, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+          const filteredMarkers: Place[] = results.map((place) => ({
+            id: place.place_id || `marker-${Date.now()}`,
+            name: place.name || 'Local sem nome',
+            location: {
+              lat: place.geometry?.location?.lat() || PENEDO_COORDINATES.lat,
+              lng: place.geometry?.location?.lng() || PENEDO_COORDINATES.lng
+            }
+          }));
+
+          setMarkers(filteredMarkers);
+        }
+      });
     }
   };
 
-  const resetMapToPenedo = () => {
-    setCenter(PENEDO_COORDINATES);
-    setZoom(initialZoom);
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
-  useEffect(() => {
-    resetMapToPenedo();
-  }, [initialZoom]);
-
   return (
-    <div className="penedo-map-container">
+    <div className={styles.mapContainer}>
       <Navbar />
       <LoadScript
-        googleMapsApiKey={apiKey}
+        googleMapsApiKey={API_KEY}
         libraries={['places']}
+        onLoad={onLoadScripts}
       >
-        <div className="filter-container" style={{
-          display: 'flex',
-          gap: '10px',
-          overflowX: 'auto',
-          padding: '10px 0'
-        }}>
-          {filterOptions.map(filter => (
-            <button
-              key={filter.id}
-              onClick={() => applyFilter(filter.id)}
-              style={{
-                padding: '8px 16px',
-                borderRadius: '20px',
-                border: '1px solid #ddd',
-                background: selectedFilter === filter.id ? '#4285F4' : 'white',
-                color: selectedFilter === filter.id ? 'white' : 'black',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
-
-        <div style={{ position: 'relative' }}>
+        {isLoaded && (
           <GoogleMap
+            onLoad={(map) => {
+              mapRef.current = map;
+              // TODO: Remover aqui dps
+              console.log("google maps carregado");
+            }}
             mapContainerStyle={mapContainerStyle}
             center={center}
             zoom={zoom}
             options={mapOptions}
-            onLoad={onMapLoad}
           >
-            <StandaloneSearchBox
-              onLoad={onSearchBoxLoad}
-              onPlacesChanged={onPlacesChanged}
-            >
-              <input
-                type="text"
-                placeholder="Buscar locais em Penedo..."
-                style={{
-                  ...searchBoxStyle,
-                  position: 'absolute',
-                  top: '10px',
-                  left: '10px',
-                  zIndex: 1
-                }}
-              />
-            </StandaloneSearchBox>
+            <div className={styles.filterContainer}>
+              <StandaloneSearchBox
+                onLoad={onSearchBoxLoad}
+                onPlacesChanged={onPlacesChanged}
+                bounds={new google.maps.LatLngBounds(
+                  new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
+                  new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
+                )}
+              >
+                <input
+                  type="text"
+                  placeholder="Pesquisar em Penedo..."
+                  value={searchQuery}
+                  onChange={handleSearch}
+                  className={styles.searchInput}
+                />
+              </StandaloneSearchBox>
 
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '20px',
-                right: '10px',
-                background: 'white',
-                padding: '8px',
-                borderRadius: '4px',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
-                cursor: 'pointer',
-                zIndex: 1
-              }}
-              onClick={resetMapToPenedo}
-            >
-              Voltar para Penedo
+              {filterOptions.map(filter => (
+                <button
+                  key={filter.id}
+                  onClick={() => applyFilter(filter.id)}
+                  className={`${styles.filterButton} ${selectedFilter === filter.id ? styles.activeFilter : ''}`}
+                >
+                  <FaMapMarkerAlt />
+                  {filter.label}
+                </button>
+              ))}
             </div>
 
             {markers.map((marker) => (
@@ -233,7 +187,7 @@ const Map: React.FC<MapComponentProps> = ({
               />
             ))}
           </GoogleMap>
-        </div>
+        )}
       </LoadScript>
     </div>
   );
