@@ -72,3 +72,31 @@
 html {
   scroll-behavior: smooth;
 }
+
+.home_slide_grid_container {
+  .splide__pagination {
+    bottom: -3rem !important;
+  }
+  .splide__pagination__page.is-active {
+    background: var(--primary) !important;
+    transform: scale(1) !important;
+  }
+  .splide__pagination__page {
+    background: var(--bg-light) !important;
+    height: 25px !important;
+    width: 25px !important;
+  }
+  .splide__arrow {
+    background-color: var(--bg-light) !important;
+    color: var(--primary) !important;
+    & svg {
+      fill: var(--primary) !important;
+    }
+  }
+  .splide__arrow--prev {
+    left: -3rem;
+  }
+  .splide__arrow--next {
+    right: -3rem;
+  }
+}
