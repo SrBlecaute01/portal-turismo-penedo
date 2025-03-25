@@ -1,0 +1,115 @@
+/* Rota.css */
+.rota_container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .header_image {
+    position: relative;
+    height: 400px;
+    background-image: url('src/assets/carousel/routes/slider-2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-color: #ff6347; /* Cor terracota similar à da imagem */
+  }
+  
+  .title_overlay {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    color: #fff
+  }
+  
+  .title-overlay h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.7;
+  }
+  
+  .active {
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);  
+}
+  
+  .content_section {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main_content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .info_section {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 30px;
+  }
+  
+  .left_image {
+    flex-direction: row;
+  }
+  
+  .right_image {
+    flex-direction: row-reverse;
+  }
+  
+  .image_container {
+    flex: 0 0 40%;
+  }
+  
+  .image_container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .section_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .section_content h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .section_content p {
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .info_section {
+      flex-direction: column;
+    }
+    
+    .right_image {
+      flex-direction: column;
+    }
+  }

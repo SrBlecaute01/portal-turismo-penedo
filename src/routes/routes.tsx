@@ -9,6 +9,7 @@ const EventsPage = lazy(() => import("../pages/Events"))
 const TourismPage = lazy(() => import("../pages/Tourism"))
 const RoutesPage = lazy(() => import("../pages/Routes"))
 const MapPage = lazy(() => import("../pages/Map"))
+const RoutesDetailsPage = lazy(() => import("../pages/RoutesDetails"))
 
 function AppRouter() {
   return (
@@ -21,7 +22,8 @@ function AppRouter() {
           <Route path="/eventos" element={<EventsPage/>}/>
           <Route path="/turismo" element={<TourismPage/>}/>
           <Route path="/rotas" element={<RoutesPage/>}/>
-          <Route path="/mapa" element={<MapPage />}/>
+          <Route path="/mapa" element={<MapPage apiKey={""}/>}/>
+          <Route path="/detalhes-rotas" element={<RoutesDetailsPage/>}/>
         </Routes>
       </Suspense>
     </HashRouter>

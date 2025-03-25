@@ -4,6 +4,7 @@ import styles from "./Routes.module.css";
 import RouteCard from "./components/RouteCard";
 import NumberInput from "../../components/Imput/NumberInput/NumberInput.tsx";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const routes = [
@@ -52,6 +53,7 @@ const routes = [
 ];
 
 function Routes() {
+  const navigate = useNavigate();
   const maxInput = Math.max(...routes.map(route => route.days))
   const [filteredRoutes, setFilteredRoutes] = useState(routes);
 
@@ -61,6 +63,10 @@ function Routes() {
       : routes;
 
     setFilteredRoutes(filtered);
+  };
+
+  const handleCardClick = () => {
+    navigate(`/detalhes-rotas`);
   };
 
   return (
@@ -81,7 +87,7 @@ function Routes() {
       </div>
       <div className={styles.routesContainer}>
         {filteredRoutes.map((route) => (
-          <div className={styles.routesItems}>
+          <div className={styles.routesItems} onClick={() => handleCardClick()}>
             <RouteCard to={route.to} title={route.title} description={route.description} days={route.days} image={route.image}/>
           </div>
         ))}
