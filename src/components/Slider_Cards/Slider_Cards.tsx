@@ -29,7 +29,11 @@ function CardSlider({cards}: SliderProps) {
 
             {/* Scrollable Cards Container */}
             <div className={styles.scrollable_cards} ref={containerRef}>
-                {cards}
+                {cards.map((card, index) => (
+                    <div key={index} className={styles.card_container}>
+                        {card}
+                    </div>
+                ))}
             </div>
 
             {/* Right Scroll Button */}

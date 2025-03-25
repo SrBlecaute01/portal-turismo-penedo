@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar";
 import Card from "../../components/Card/";
 import SliderCard from "../../components/Slider_Cards/";
 import Carousel from "../../components/Carousel";
+import Searchbar from "../../components/Searchbar";
 import styles from './Hotels.module.css';
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
@@ -25,17 +26,36 @@ function Hotels() {
   ];
   return (
     <div className={styles.rootContainer}>
+      {/*Navbar*/}
       <Navbar/>
 
+      {/*Carousel de imagens*/}
       <div className={styles.carouselContainer}>
         <Carousel images={images.map(image => image.default)}/>
         <div className={styles.carouselText}>Principais Destinos</div>
+        <div className={styles.carouselSearchbar}>
+          <Searchbar/>
+        </div>
       </div>
+      
+      {/*Slider de cards*/}
+      <div className={styles.slider_container}>
+        <h1>Mais procurados</h1>
+        {/*Dropdown de ordenação*/}
+        <div className={styles.sort_container}>
+          <label htmlFor="sort">Ordenar por</label>
+          {/*função de ordenação ainda não implementada*/}
+          <select id="sort" value={0} >
+              <option>Ordem alfabética</option>
+              <option>Mais avaliados</option>
+              <option>Menor preço</option>
+          </select>
+        </div>
 
-      <div className={styles.slider_cards}>
         <SliderCard cards={cards_to_scroll}/>
       </div>
 
+      {/*Lista de cards e descrições*/}
       <div className={styles.card_list}>
         <div className={styles.horizontal_cards}>
           <Card title="Hotel Exemplo Calipso" to="#" stars= {4.5} imageUrl="https://placehold.co/150x100/3388EE/FFFFFF/"/>

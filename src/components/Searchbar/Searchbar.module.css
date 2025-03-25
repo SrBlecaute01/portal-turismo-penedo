@@ -1,0 +1,25 @@
+.search_bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px;
+    min-width: 450px; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    position: relative;
+}
+
+.search_bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: 18px;
+    flex: 1;
+    color: #333;
+}
+
+.search_icon {
+    color: #555;
+    cursor: pointer;
+}

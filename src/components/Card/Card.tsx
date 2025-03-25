@@ -35,8 +35,14 @@ function Card({title, to, stars, imageUrl, date, routeDay, description, isExpand
     }
     
   }
+
+  let cardClasses = styles.card;
+  if(isExpanded){
+    cardClasses = styles.expanded_card
+  }
+
   return (
-    <div className={Boolean(isExpanded) ? styles.expanded_card : styles.card}>
+    <div className={cardClasses}>
       
       {Boolean(imageUrl) &&
         <img className={styles.card_img} src={imageUrl} alt={title}/>}
