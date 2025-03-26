@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import styles from "./RoutesDetails.module.css";
 import Carousel from "../../components/Carousel";
