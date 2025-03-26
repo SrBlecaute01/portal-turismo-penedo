@@ -23,7 +23,7 @@ function AppRouter() {
           <Route path="/turismo" element={<TourismPage/>}/>
           <Route path="/rotas" element={<RoutesPage/>}/>
           <Route path="/mapa" element={<MapPage apiKey={""}/>}/>
-          <Route path="/detalhes-rotas" element={<RoutesDetailsPage/>}/>
+          <Route path="/rotas/:id" element={<RoutesDetailsPage/>}/>
         </Routes>
       </Suspense>
     </HashRouter>
