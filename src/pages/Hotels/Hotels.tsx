@@ -32,14 +32,8 @@ function Hotels() {
       <Navbar/>
 
       {/* Carousel component*/}
-      <div className={styles.carouselContainer}>
-        <Carousel images={images.map(image => image.default)}/>
-        {/*LEMBRAR: colocar isso dentro do componente carrossel em si, e colocar a barra de pesquisa também*/}
-        <div className={styles.carouselText}>Principais Destinos</div>
-        <div className={styles.carouselSearchbar}>
-          <Searchbar/>
-        </div>
-      </div>
+      <Carousel text = 'Principais Destinos' images={images.map(image => image.default)}/>
+
 
 
       {/* Main Content Container*/}
