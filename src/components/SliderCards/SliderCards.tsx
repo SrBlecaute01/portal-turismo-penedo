@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
-import styles from "./Slider_Cards.module.css";
+import styles from "./SliderCards.module.css";
+
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Navigation} from "swiper/modules";
 
 interface SliderProps {
+    text: string;
     cards: React.ReactNode[];
 }
 
-function CardSlider({cards}: SliderProps) {
+function CardSlider({text, cards}: SliderProps) {
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     function scrollLeft() {
@@ -20,6 +24,32 @@ function CardSlider({cards}: SliderProps) {
         }
     }
 
+
+    return(
+        <div className={styles.cardsWantedContainer}>
+            <p className={styles.cardsWantedText}>{text}</p>
+            <Swiper
+                loop={false}
+                className={styles.cardsWantedCarousel}
+                centeredSlides={false}
+                slidesPerView={4}
+                spaceBetween={25}
+                modules={[Autoplay, Navigation]}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+            >
+                {cards.map((card, index) => (
+                    <SwiperSlide key={index}>
+                        <div className={styles.card_container}>
+                            {card}
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
+    );
     return (
         <div className={styles.slider_container}>
             {/* Left Scroll Button */}
