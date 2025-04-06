@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import styles from "./SliderCards.module.css";
 
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -10,20 +9,6 @@ interface SliderProps {
 }
 
 function CardSlider({text, cards}: SliderProps) {
-    const containerRef = useRef<HTMLDivElement | null>(null);
-
-    function scrollLeft() {
-        if (containerRef.current) {
-            containerRef.current.scrollBy({ left: -250, behavior: "smooth" });
-        }
-    }
-
-    function scrollRight() {
-        if (containerRef.current) {
-            containerRef.current.scrollBy({ left: 250, behavior: "smooth" });
-        }
-    }
-
 
     return(
         <div className={styles.cardsWantedContainer}>
@@ -50,24 +35,6 @@ function CardSlider({text, cards}: SliderProps) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
-    );
-    return (
-        <div className={styles.slider_container}>
-            {/* Left Scroll Button */}
-            <button className={styles.nav_button + " " + styles.left_btn} onClick={scrollLeft}>
-                &#10094;
-            </button>
-
-            {/* Scrollable Cards Container */}
-            <div className={styles.scrollable_cards} ref={containerRef}>
-                {cards}
-            </div>
-
-            {/* Right Scroll Button */}
-            <button className={styles.nav_button + " " + styles.right_btn} onClick={scrollRight}>
-                &#10095;
-            </button>
         </div>
     );
 }

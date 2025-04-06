@@ -9,16 +9,6 @@
     padding-top: 20px;
 }
 
-.cardsWantedCarousel {
-    /* as of the Swiper as a part of the SliderCards component */
-    /* this class serves no purpose yet */
-    /* this used to work when the Swiper wasn't in this component*/
-    /* like in the tourism page */
-    /*
-    padding: 30px;
-    */
-}
-
 .card_container{
     padding: 30px;
     width: 251px;
