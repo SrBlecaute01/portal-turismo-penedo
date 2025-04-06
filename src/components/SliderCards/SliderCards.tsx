@@ -5,7 +5,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper/modules";
 
 interface SliderProps {
-    text: string;
+    text?: string;
     cards: React.ReactNode[];
 }
 
@@ -27,7 +27,9 @@ function CardSlider({text, cards}: SliderProps) {
 
     return(
         <div className={styles.cardsWantedContainer}>
-            <p className={styles.cardsWantedText}>{text}</p>
+            {Boolean(text) &&
+                <p className={styles.cardsWantedText}>{text}</p>
+            }
             <Swiper
                 loop={false}
                 className={styles.cardsWantedCarousel}

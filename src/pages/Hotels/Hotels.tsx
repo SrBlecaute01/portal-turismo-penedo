@@ -2,9 +2,7 @@ import Navbar from "../../components/Navbar";
 import SliderCard from "../../components/SliderCards/index.ts";
 import Carousel from "../../components/Carousel";
 import styles from './Hotels.module.css';
-import SearchBar from "../../components/Searchbar/Searchbar.tsx";
-
-
+import Searchbar from "../../components/Searchbar/Searchbar.tsx";
 import RatingCard from "../../components/RatingCard/RatingCard.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
@@ -39,7 +37,7 @@ function Hotels() {
         {/*LEMBRAR: colocar isso dentro do componente carrossel em si, e colocar a barra de pesquisa também*/}
         <div className={styles.carouselText}>Principais Destinos</div>
         <div className={styles.carouselSearchbar}>
-          <SearchBar/>
+          <Searchbar/>
         </div>
       </div>
 
