@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar";
 import Card from "../../components/Card/";
-import SliderCard from "../../components/Slider_Cards/";
+import SliderCard from "../../components/SliderCards";
 import Carousel from "../../components/Carousel";
 import styles from './Restaurants.module.css';
 
