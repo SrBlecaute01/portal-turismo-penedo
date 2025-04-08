@@ -1,9 +1,9 @@
 /* Card Carousel Section*/
-.cardsWantedContainer {
+.cards_wanted_container {
     grid-column-start: 2;
 }
 
-.cardsWantedText {
+.cards_wanted_text {
     font-size: 32px;
     font-weight: bold;
     padding-top: 20px;
@@ -17,4 +17,25 @@
     &:hover {
         transform: scale(1.1);
     }
+}
+
+.sort_container {
+    max-width: 1200px;
+    display: flex;
+    position:relative;
+    z-index: 2;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.sort_container select {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    cursor: pointer;
+}
+  
+.sort_container label {
+    font-weight: bold;
 }

@@ -11,13 +11,26 @@ interface SliderProps {
 function CardSlider({text, cards}: SliderProps) {
 
     return(
-        <div className={styles.cardsWantedContainer}>
+        <div className={styles.cards_wanted_container}>
             {Boolean(text) &&
-                <p className={styles.cardsWantedText}>{text}</p>
+                <div className={styles.top_info_container}>
+                    {/* Text over the slider */}
+                    <p className={styles.cards_wanted_text}>{text}</p>
+                    {/* Sorting options dropdown */}
+                    <div className={styles.sort_container}>
+                        <label htmlFor="sort">Ordenar por</label>
+                        {/* function for sorting not implemented yet*/}
+                        <select id="sort" value={0} >
+                            <option>Ordem alfabética</option>
+                            <option>Mais avaliados</option>
+                            <option>Menor preço</option>
+                        </select>
+                    </div>
+                </div>
             }
             <Swiper
                 loop={false}
-                className={styles.cardsWantedCarousel}
+                className={styles.cards_wanted_carousel}
                 centeredSlides={false}
                 slidesPerView={4}
                 spaceBetween={25}
