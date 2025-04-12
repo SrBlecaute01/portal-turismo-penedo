@@ -9,7 +9,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import styles from "./Footer.module.css";
-import logoImg from "../../assets/logo-portal.png"; // Ajuste o caminho conforme necessário
+import logoImg from "../../assets/logo-portal.png"; 
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -17,7 +17,6 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        {/* Bloco 1: Sobre o Portal */}
         <div className={styles.footerBlock}>
           <h3 className={styles.blockTitle}>Sobre Penedo</h3>
           <div className={styles.logoContainer}>
@@ -82,7 +81,6 @@ const Footer: React.FC = () => {
           </address>
         </div>
 
-        {/* Bloco 3: Links Úteis */}
         <div className={styles.footerBlock}>
           <h3 className={styles.blockTitle}>Receba notícias via e-mail</h3>
           <div className={styles.newsletter}>
