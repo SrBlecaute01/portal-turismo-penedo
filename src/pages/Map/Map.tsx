@@ -9,6 +9,7 @@ import Navbar from '../../components/Navbar';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './Map.module.css';
 import { Location, Place, MapComponentProps } from './types';
+import Footer from '../../components/Footer/Footer';
 
 const PENEDO_COORDINATES: Location = {
   lat: -10.2906,
@@ -189,6 +190,7 @@ const Map: React.FC<MapComponentProps> = ({
           </GoogleMap>
         )}
       </LoadScript>
+      <Footer />
     </div>
   );
 };
