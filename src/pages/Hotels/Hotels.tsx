@@ -3,6 +3,7 @@ import SliderCard from "../../components/SliderCards/index.ts";
 import Carousel from "../../components/Carousel";
 import styles from './Hotels.module.css';
 import RatingCard from "../../components/RatingCard/RatingCard.tsx";
+import { useNavigate } from "react-router-dom";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -22,6 +23,17 @@ function Hotels() {
   )));
   cards_to_scroll = cards_to_scroll.concat(cards_to_scroll); // Duplicate the array to make it scrollable
   cards_to_scroll = cards_to_scroll.concat(cards_to_scroll); // Duplicate the array to make it scrollable again
+ 
+  const navigate = useNavigate();
+
+  const handleCardClick = (hotelId?: number, hotelName?: string) => {
+    if(Boolean(hotelId)){
+      navigate(`/hoteis/${hotelId}`);
+    }
+    else if(Boolean(hotelName)){
+      navigate(`/hoteis/${hotelName}`);
+    }
+  };
   
   return (
     /* Hotel Container*/
@@ -39,18 +51,20 @@ function Hotels() {
 
         {/* Card list with placeholder cards */}
         <div className={styles.cardsListContainer}>
-          {images.map(image =>
-            <RatingCard
-              text="Hotel Lorem Calipsum"
-              image={{
-                title: "green iguana",
-                image: image.default
-              }}
-              info={{
-                title: "Hotel Lorem Calipsum",
-                description: description
-              }}
-            />
+          {images.map((image, index) =>
+            <div key ={index} onClick={() => handleCardClick(index+1)}>
+              <RatingCard
+                text="Hotel Lorem Calipsum"
+                image={{
+                  title: "green iguana",
+                  image: image.default
+                }}
+                info={{
+                  title: "Hotel Lorem Calipsum",
+                  description: description
+                }}
+              />
+            </div>
           )}
         </div>
       </div>
