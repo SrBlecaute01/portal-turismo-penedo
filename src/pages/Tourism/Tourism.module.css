@@ -6,6 +6,7 @@
 .tourismContent {
     display: grid;
     grid-template-columns: 1fr minmax(1220px, 1fr) 1fr;
+    margin-bottom: 3rem;
 }
 
 .cardsContainer {
