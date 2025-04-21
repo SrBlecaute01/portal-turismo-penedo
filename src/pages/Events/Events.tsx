@@ -1,101 +1,105 @@
 import Navbar from "../../components/Navbar";
 import Carousel from "../../components/Carousel";
-import Card from "../Routes/components/RouteCard";
+import Card from "../../components/EventCard";
 import styles from "./Events.module.css"; 
 import {useState} from "react";
 import Footer from "../../components/Footer/Footer.tsx";
 
-const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const images = Object.values(import.meta.glob('../../assets/carousel/events/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
-const routes = [
+const events = [
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Festa de Bom Jesus dos Navegantes",
     to: "#",
-    days: 1,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[0].default
+    month: "JAN",
+    description: "A Festa de Bom Jesus dos Navegantes em Penedo, Alagoas, é uma celebração tradicional realizada em janeiro, unindo fé, cultura e festividades.",
+    image: images[3].default,
+    days: 9
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Bloco do OVO",
     to: "#",
-    days: 3,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[1].default
+    month: "FEV",
+    description: "O Ovo da Madrugada é uma agremiação carnavalesca de Penedo, Alagoas, fundada em 2009 por um grupo de amigos penedenses com o objetivo de resgatar a alegria dos carnavais de rua tradicionais da cidade.",
+    image: images[0].default,
+    days: 15
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Lavagem do Beco da Preguiça",
     to: "#",
-    days: 5,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[2].default
+    month: "MAR",
+    description: "A Lavagem do Beco da Preguiça é uma das mais tradicionais festividades de Penedo, Alagoas, sendo celebrada há mais de 40 anos.",
+    image: images[6].default,
+    days: 4
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Moto Fest",
     to: "#",
-    days: 7,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[0].default
+    month: "MAR",
+    description: "O Penedo Moto Fest é um dos eventos de motociclismo mais importantes do Baixo São Francisco, realizado anualmente na cidade histórica de Penedo, Alagoas.",
+    image: images[7].default,
+    days: 21
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Fli Penedo - Festa Literária de Penedo",
     to: "#",
-    days: 15,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[1].default
+    month: "ABR",
+    description: "A Festa Literária de Penedo (FliPenedo) é um evento cultural anual realizado em Penedo, que celebra a literatura e as artes.",
+    image: images[2].default,
+    days: 9
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Desfile Cívico de 7 de Setembro",
     to: "#",
-    days: 30,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[2].default
+    month: "SET",
+    description: "O desfile cívico de 7 de setembro em Penedo, Alagoas, é uma tradição marcante que celebra a Independência do Brasil, com ampla participação da comunidade.",
+    image: images[1].default,
+    days: 7
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Trakto Show: Transformando Negócios e Sonhos",
     to: "#",
-    days: 1,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[0].default
+    month: "SET",
+    description: "O Trakto Show é um evento que acontece em Penedo, Alagoas, e tem como foco o empreendedorismo, inovação e criatividade.",
+    image: images[10].default,
+    days: 23
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Festival Gastronômico",
     to: "#",
-    days: 3,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[1].default
+    month: "OUT",
+    description: "O festival gastronômico teve sua primeira edição em 2024 com o tema Festival de Penedo Sabor Jazz.",
+    image: images[5].default,
+    days: 1
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Penedo Celebra Fé",
     to: "#",
-    days: 5,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[2].default
+    month: "OUT",
+    description: "O Penedo Celebra a Fé é o maior evento da comunidade evangélica do Baixo São Francisco alagoano, realizado geralmente no mês de outubro.",
+    image: images[8].default,
+    days: 26
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Festival de Cinema de Penedo.",
     to: "#",
-    days: 7,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[0].default
+    month: "NOV",
+    description: "O Festival de Cinema de Penedo acontecia no início de janeiro, acompanhando a tradicional procissão de Bom Jesus dos Navegantes.",
+    image: images[4].default,
+    days: 25
   },
   {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
+    title: "Penedo Luz",
     to: "#",
-    days: 15,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[1].default
-  },
-  {
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "#",
-    days: 30,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[2].default
-  },
+    month: "DEZ",
+    description: "O Penedo Luz é uma iniciativa da prefeitura de Penedo, em Alagoas, que transforma a cidade durante o Natal.",
+    image: images[9].default,
+    days: 8
+  }
 ];
 
 function Events() {
-  const [filteredRoutes] = useState(routes);
+  const [filteredEvents] = useState(events);
   return (
     <div className={styles.rootContainer}>
       <Navbar />
@@ -105,9 +109,9 @@ function Events() {
       </div>
 
       <div className={styles.eventsContainer}>
-        {filteredRoutes.map((route) => (
+        {filteredEvents.map((event) => (
           <div className={styles.eventsItems}>
-            <Card to={route.to} title={route.title} description={route.description} days={route.days} image={route.image}/>
+            <Card to={event.to} title={event.title} description={event.description} days={event.days ?? 0} month={event.month} image={event.image}/>
           </div>
         ))}
       </div>
