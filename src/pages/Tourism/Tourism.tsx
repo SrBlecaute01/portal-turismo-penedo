@@ -14,6 +14,8 @@ const tourismImagesMap = new Map<string, string>(
   })
 );
 
+console.log(tourismImagesMap);
+
 const tourismCarousel = Object.values(import.meta.glob('../../assets/carousel/tourism/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const tourismContent = [
   {
