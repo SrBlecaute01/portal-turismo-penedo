@@ -12,6 +12,7 @@
 .card_container{
     padding: 30px;
     width: 251px;
+
     --rating-card-height: 280px;
     --rating-card-width: 251px;
     --rating-card-image-height: 188px;
