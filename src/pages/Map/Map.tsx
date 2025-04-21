@@ -1,7 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import {
   GoogleMap,
-  LoadScript,
   Marker,
   StandaloneSearchBox
 } from '@react-google-maps/api';
@@ -10,18 +9,23 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './Map.module.css';
 import { Location, Place, MapComponentProps } from './types';
 import Footer from '../../components/Footer/Footer';
+import { useLoadScript } from '@react-google-maps/api';
 
 const PENEDO_COORDINATES: Location = {
   lat: -10.2906,
   lng: -36.5808
 };
 
-const API_KEY = "AIzaSyCpJCXqQOFdgJs3TJZJ1m-ZSptlTJh-8vI";
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 const Map: React.FC<MapComponentProps> = ({
   initialZoom = 15
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: API_KEY,
+    libraries: ['places'],
+  });
+
   const [center, setCenter] = useState<Location>(PENEDO_COORDINATES);
   const [markers, setMarkers] = useState<Place[]>([]);
   const [zoom, setZoom] = useState<number>(initialZoom);
@@ -51,10 +55,6 @@ const Map: React.FC<MapComponentProps> = ({
     { id: 'pontos-turisticos', label: 'Pontos Turísticos' },
     { id: 'servicos', label: 'Serviços' }
   ];
-
-  const onLoadScripts = () => {
-    setIsLoaded(true);
-  };
 
   const onSearchBoxLoad = (ref: google.maps.places.SearchBox) => {
     searchBoxRef.current = ref;
@@ -133,63 +133,61 @@ const Map: React.FC<MapComponentProps> = ({
   return (
     <div className={styles.mapContainer}>
       <Navbar />
-      <LoadScript
-        googleMapsApiKey={API_KEY}
-        libraries={['places']}
-        onLoad={onLoadScripts}
-      >
-        {isLoaded && (
-          <GoogleMap
-            onLoad={(map) => {
-              mapRef.current = map;
-              // TODO: Remover aqui dps
-              console.log("google maps carregado");
-            }}
-            mapContainerStyle={mapContainerStyle}
-            center={center}
-            zoom={zoom}
-            options={mapOptions}
-          >
-            <div className={styles.filterContainer}>
-              <StandaloneSearchBox
-                onLoad={onSearchBoxLoad}
-                onPlacesChanged={onPlacesChanged}
-                bounds={new google.maps.LatLngBounds(
-                  new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
-                  new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
-                )}
-              >
-                <input
-                  type="text"
-                  placeholder="Pesquisar em Penedo..."
-                  value={searchQuery}
-                  onChange={handleSearch}
-                  className={styles.searchInput}
-                />
-              </StandaloneSearchBox>
 
-              {filterOptions.map(filter => (
-                <button
-                  key={filter.id}
-                  onClick={() => applyFilter(filter.id)}
-                  className={`${styles.filterButton} ${selectedFilter === filter.id ? styles.activeFilter : ''}`}
-                >
-                  <FaMapMarkerAlt />
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-
-            {markers.map((marker) => (
-              <Marker
-                key={marker.id}
-                position={marker.location}
-                title={marker.name}
+      {isLoaded ? (
+        <GoogleMap
+          onLoad={(map) => {
+            mapRef.current = map;
+          }}
+          mapContainerStyle={mapContainerStyle}
+          center={center}
+          zoom={zoom}
+          options={mapOptions}
+        >
+          <div className={styles.filterContainer}>
+            <StandaloneSearchBox
+              onLoad={onSearchBoxLoad}
+              onPlacesChanged={onPlacesChanged}
+              bounds={new google.maps.LatLngBounds(
+                new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
+                new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
+              )}
+            >
+              <input
+                type="text"
+                placeholder="Pesquisar em Penedo..."
+                value={searchQuery}
+                onChange={handleSearch}
+                className={styles.searchInput}
               />
+            </StandaloneSearchBox>
+
+            {filterOptions.map(filter => (
+              <button
+                key={filter.id}
+                onClick={() => applyFilter(filter.id)}
+                className={`${styles.filterButton} ${selectedFilter === filter.id ? styles.activeFilter : ''}`}
+              >
+                <FaMapMarkerAlt />
+                {filter.label}
+              </button>
             ))}
-          </GoogleMap>
-        )}
-      </LoadScript>
+          </div>
+
+          {markers.map((marker) => (
+            <Marker
+              key={marker.id}
+              position={marker.location}
+              title={marker.name}
+            />
+          ))}
+        </GoogleMap>
+      ) : (
+        <div className={styles.loadingContainer}>
+          <p>Carregando mapa...</p>
+        </div>
+      )}
+
       <Footer />
     </div>
   );
