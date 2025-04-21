@@ -3,6 +3,7 @@ import SliderCard from "../../components/SliderCards/index.ts";
 import Carousel from "../../components/Carousel";
 import styles from './Hotels.module.css';
 import RatingCard from "../../components/RatingCard/RatingCard.tsx";
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -142,7 +143,7 @@ function Hotels() {
           )}
         </div>
       </div>
-
+      <Footer/>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import Card from "../../components/Card/";
 import SliderCard from "../../components/SliderCards";
 import Carousel from "../../components/Carousel";
 import styles from './Restaurants.module.css';
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -52,6 +53,7 @@ function Restaurants() {
           <Card title="Restaurant Exemplo Calipso" to="#" description={description} isExpanded={true}/>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }
