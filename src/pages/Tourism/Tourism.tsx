@@ -10,7 +10,7 @@ const tourismImagesMap = new Map<string, string>(
   tourismImages.map((module) => {
     const path = module.default;
     const parts = path.split('/');
-    return [parts[parts.length - 1].replace(/\D/g, ""), path];
+    return [parts[parts.length - 1].split("-")[0].replace(/\D/g, ""), path];
   })
 );
 
