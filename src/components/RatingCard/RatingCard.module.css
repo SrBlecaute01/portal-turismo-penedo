@@ -2,12 +2,17 @@
     --rating-card-width: 345px;
     --rating-card-height: 375px;
     --rating-card-description-width: 855px;
+    --rating-card-image-width: 100%;
+    --rating-card-image-height: 280px;
 
     --rating-card-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
     --rating-card-backgroud: #ffffff;
 
     --rating-card-font: 16px;
     --rating-card-font-weight: bold;
+
+    --rating-card-text-color: black;
+    --rating-card-navlink-active-color: #1D85D9;
 }
 
 .ratingContainer {
@@ -29,6 +34,7 @@
 
     overflow: hidden;
     border-radius: 15px;
+    
 }
 
 .infoContainer {
@@ -49,9 +55,18 @@
     border-radius: 15px;
 }
 
+a {
+    color: var(--rating-card-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--rating-card-navlink-active-color);
+}
+
 .cardImage {
-    width: 100%;
-    height: 280px;
+    width: var(--rating-card-image-width);
+    height: var(--rating-card-image-height);
 
     object-fit: cover;
     object-position: center;
