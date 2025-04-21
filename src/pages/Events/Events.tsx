@@ -3,6 +3,7 @@ import Carousel from "../../components/Carousel";
 import Card from "../Routes/components/RouteCard";
 import styles from "./Events.module.css"; 
 import {useState} from "react";
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -110,6 +111,7 @@ function Events() {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   )
 }

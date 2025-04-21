@@ -5,6 +5,7 @@ import RouteCard from "./components/RouteCard";
 import NumberInput from "../../components/Imput/NumberInput/NumberInput.tsx";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const routes = [
@@ -98,6 +99,7 @@ function Routes() {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   )
 }

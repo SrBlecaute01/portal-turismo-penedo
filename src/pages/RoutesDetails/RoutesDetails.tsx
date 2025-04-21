@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar";
 import styles from "./RoutesDetails.module.css";
 import Carousel from "../../components/Carousel";
 import { useParams } from "react-router-dom";
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -165,6 +166,7 @@ const Routes = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
