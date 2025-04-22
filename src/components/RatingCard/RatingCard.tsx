@@ -10,6 +10,7 @@ export interface RatingCardInfoProps {
 export interface RatingCardImageProps {
   image: string;
   title: string;
+  rating_value?: number;
   className?: string;
 }
 
@@ -31,7 +32,6 @@ const defaultRatingProps: RatingProps = {
 }
 
 function RatingCard(props: RatingCardProps) {
-  const ratingProps = { ...defaultRatingProps, ...props.rating };
   const toLink = props.to ? props.to : "#";
   return(
     <div className={styles.ratingContainer + " " + (props.className ?? "")}>
@@ -43,7 +43,7 @@ function RatingCard(props: RatingCardProps) {
               {props.text}
             </NavLink>
           </div>
-          <Rating {...ratingProps}/>
+          {generateStars(props.image.rating_value, props.rating)}
         </div>
       </div>
 
@@ -59,6 +59,21 @@ function RatingCard(props: RatingCardProps) {
       }
     </div>
   );
+}
+
+
+function generateStars(rating: number = -1, ratingPropsOverride?: RatingProps) {
+  const maxStars = 5;
+
+  if (rating < 0 || rating > maxStars) {
+    return
+  }
+  
+  defaultRatingProps.defaultValue = rating;
+
+  const ratingProps = { ...defaultRatingProps, ...ratingPropsOverride };
+
+  return <Rating {...ratingProps}/>
 }
 
 export default RatingCard;
