@@ -66,127 +66,176 @@ export const daysData: DaysDataType = {
   },
   2: {
     id: 2,
-    title: "Dia 2 - Cultura Ribeirinha",
+    title: "Dia 2 - Natureza e Tradições",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Passeio de Barco pelo Rio São Francisco",
-        description: "Comece o dia com um passeio de barco pelo Rio São Francisco. Os barqueiros locais oferecem passeios que mostram a beleza do rio e contam histórias sobre a importância dele para a região. Você terá a oportunidade de ver a cidade a partir de uma perspectiva diferente e entender por que o rio é chamado de 'Velho Chico'.",
+        image: "src/assets/tourism/26.jpg",
+        title: "Passeio pela Foz do Rio São Francisco",
+        description: "Acorde cedo e prepare-se para um dos momentos mais mágicos da viagem: o passeio de barco pela Foz do Rio São Francisco. Os catamarãs saem do cais da cidade e seguem rio abaixo até o ponto onde o São Francisco encontra o mar. Ao longo do trajeto, bancos de areia, dunas e vegetação de restinga formam um cenário cinematográfico. Há paradas para banho e tempo para contemplar a paisagem.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
-        title: "Almoço com Culinária Ribeirinha",
-        description: "Experimente os pratos típicos da região ribeirinha em um dos restaurantes à beira do rio. O surubim, peixe característico do São Francisco, é uma ótima pedida, assim como o pirão de peixe e o camarão de água doce.",
+        image: "src/assets/tourism/25.jpg",
+        title: "Cais do Porto",
+        description: "Ao retornar do passeio, caminhe pelo antigo Cais do Porto, que guarda memórias dos tempos em que Penedo era um dos principais polos comerciais da região. Os armazéns históricos e a vista para o rio fazem desse local um convite à contemplação.",
         period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/27.jpg",
+        title: "Dunas Douradas",
+        description: "Depois, siga até as Dunas Douradas, um conjunto de formações arenosas que refletem o sol em tons alaranjados no fim da tarde. A paisagem parece saída de um cartão-postal e rende fotos incríveis.",
+        period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/30.jpg",
+        title: "Jantar no Oratório",
+        description: "Na segunda noite, o jantar é no Oratório, restaurante conhecido pela culinária criativa e ambiente acolhedor. Sabores regionais se misturam com pratos contemporâneos, em um espaço decorado com peças de artesanato local.",
+        period: "noite"
       },
     ],
   },
   3: {
     id: 3,
-    title: "Dia 3 - Artesanato e Tradições",
+    title: "Dia 3 - Cultura Local e Sabores da Terra",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-1.jpeg",
-        title: "Mercado de Artesanato",
-        description: "Visite o mercado de artesanato local, onde você encontrará obras em madeira, cerâmica, palha e outros materiais que representam a rica cultura regional. Converse com os artesãos e descubra as histórias por trás de cada peça única.",
+        image: "src/assets/tourism/2.jpg",
+        title: "Mercado do Artesanato",
+        description: "Comece o dia conhecendo o colorido Mercado do Artesanato, onde você encontra desde peças em barro e madeira até bordados e rendas produzidas por artesãos locais. Cada objeto tem uma história e representa o saber popular da região. ",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Oficina de Artesanato",
-        description: "Participe de uma oficina onde você poderá aprender técnicas tradicionais de artesanato com mestres locais. É uma experiência enriquecedora que permite uma conexão mais profunda com a cultura penedense.",
+        image: "src/assets/tourism/1.png",
+        title: "Pavilhão da Farinha",
+        description: "Ao lado, visite o Pavilhão da Farinha, uma construção antiga onde ainda hoje é possível ver a produção artesanal de farinha e seus derivados. É uma experiência viva da cultura alimentar local e um ótimo lugar para conversar com os moradores.",
+        period: "manhã"
+      },
+      {
+        image: "src/assets/tourism/31.jpg",
+        title: "Fundação Casa do Penedo",
+        description: "A tarde reserva um passeio pela Fundação Casa do Penedo, um centro cultural instalado em um casarão histórico com vista para o rio. O acervo reúne documentos, mapas, obras de arte e exposições temporárias que ajudam a entender melhor a formação da cidade e a diversidade de seu povo.",
         period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/32.jpg",
+        title: "Eventos Culturais ou Noite Livre",
+        description: "Se sua visita coincidir com alguma festividade como o Penedo Luz (dezembro) ou a Feira Literária, aproveite para mergulhar ainda mais na cultura local. As ruas ficam iluminadas, há apresentações de música e dança, além de barracas com comidas típicas. Caso não haja eventos no período, volte a um dos seus restaurantes favoritos e aproveite para se despedir com um brinde ao Velho Chico.",
+        period: "noite"
       },
     ],
   },
   4: {
     id: 4,
-    title: "Dia 4 - Gastronomia Local",
+    title: "Dia 4 - Fé e Patrimônio Religioso",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
-        title: "Tour Gastronômico",
-        description: "Faça um tour pelos estabelecimentos tradicionais da cidade, experimentando iguarias como o bolo de macaxeira, cocadas, e outros doces típicos que representam a doçaria portuguesa adaptada aos ingredientes locais.",
+        image: "src/assets/tourism/7.jpg",
+        title: "Igreja Matriz Nossa Senhora do Rosário e Igreja da Penha",
+        description: "Explore o lado espiritual da cidade com a visita à Igreja Matriz Nossa Senhora do Rosário, imponente e de arquitetura belíssima. Sua localização privilegiada oferece vista panorâmica do centro histórico. Em seguida, conheça a charmosa Igreja Nossa Senhora da Penha, mais discreta, mas igualmente rica em história e fé.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-1.jpeg",
-        title: "Aula de Culinária Regional",
-        description: "Participe de uma aula de culinária com chefs locais que ensinarão receitas tradicionais passadas de geração em geração. Aprenda a preparar pratos como a moqueca de peixe ou o arroz de cuxá.",
+        image: "src/assets/tourism/9.jpg",
+        title: "Convento Franciscano e Igreja Santa Maria dos Anjos",
+        description: "À tarde, visite o Convento Franciscano, um dos pontos religiosos mais antigos da região, fundado no século XVII. Seu interior abriga obras de arte e painéis de azulejos históricos. Em seguida, a Igreja Santa Maria dos Anjos completa o roteiro com sua simplicidade encantadora e atmosfera de paz.",
         period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/33.webp",
+        title: "Jantar no Prato Cheio",
+        description: "Depois de um dia de introspecção e beleza, o jantar é no Prato Cheio, restaurante que serve pratos regionais bem servidos, em ambiente informal e acolhedor.",
+        period: "noite"
       },
     ],
   },
   5: {
     id: 5,
-    title: "Dia 5 - Natureza e Aventura",
+    title: "Dia 5 - Cultura Popular e Expressões Urbanas",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Trilha Ecológica",
-        description: "Participe de uma trilha guiada pela mata ciliar do Rio São Francisco, onde você conhecerá a flora e fauna nativas e aprenderá sobre os esforços de conservação da região.",
+        image: "src/assets/tourism/0.png",
+        title: "Mercado Público de Penedo",
+        description: "No Mercado Público, você vivencia o dia a dia dos moradores. É o local ideal para experimentar frutas tropicais, doces caseiros e ouvir histórias locais.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
-        title: "Canoagem no Rio",
-        description: "À tarde, experimente a canoagem em trechos tranquilos do Rio São Francisco, uma atividade que proporciona contato direto com a natureza e vistas deslumbrantes das margens do rio.",
+        image: "src/assets/tourism/4.jpg",
+        title: "Círculo Operário",
+        description: "A tarde segue com um passeio pelo histórico Círculo Operário, que já foi ponto de encontros sociais e culturais.",
         period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/34.jpg",
+        title: "Rua do Banheiro",
+        description: "A Rua do Banheiro, com suas construções típicas, é outro charme escondido, cheia de memórias do cotidiano penedense.",
+        period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/35.jpeg",
+        title: "Evento Cultural Noturno",
+        description: "Aproveite eventos como o Festival de Cinema de Penedo ou apresentações na praça central. Uma boa pedida para quem gosta de arte, cinema e música ao vivo.",
+        period: "noite"
       },
     ],
   },
   6: {
     id: 6,
-    title: "Dia 6 - Fazendas Históricas",
+    title: "Dia 6 - Praças, Relaxamento e Sabores Regionais",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-1.jpeg",
-        title: "Visita a Engenho de Cana",
-        description: "Conheça um antigo engenho de cana-de-açúcar e aprenda sobre a importância dessa cultura para o desenvolvimento econômico da região. Veja como funcionavam os processos de produção de açúcar e derivados no passado.",
+        image: "src/assets/tourism/17.png",
+        title: "Praça Dr. Clementino do Monte",
+        description: "Um dia mais leve começa com uma caminhada pela Praça Dr. Clementino do Monte, local tranquilo para relaxar, observar a cidade e tomar um café. Ideal para quem quer respirar fundo e absorver a essência local.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Almoço na Fazenda",
-        description: "Desfrute de um almoço típico servido em uma fazenda histórica, com produtos frescos colhidos na propriedade. A experiência inclui a degustação de cachaças artesanais produzidas seguindo métodos tradicionais.",
+        image: "src/assets/tourism/36.png",
+        title: "Almoço no Silvas Brasas e sorvetes no Mister Shake",
+        description: "Almoce no Silvas Brasas, conhecido por seu churrasco saboroso e ambiente familiar. Depois, experimente um açaí ou milk-shake no Mister Shake, muito popular entre os moradores.",
         period: "tarde"
+      },
+      {
+        image: "src/assets/tourism/37.jpg",
+        title: "Yspetos Grill",
+        description: "Para fechar o dia, saboreie espetinhos variados no Yspetos Grill",
+        period: "noite"
       },
     ],
   },
   7: {
     id: 7,
-    title: "Dia 7 - Festas e Tradições Populares",
+    title: "Dia 7 - Natureza, Despedida e Agradecimento",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
-        title: "Apresentação de Reisado",
-        description: "Assista a uma apresentação de Reisado, manifestação cultural típica do nordeste brasileiro que mistura música, dança e teatro em uma celebração colorida e vibrante.",
+        image: "src/assets/tourism/3.jpg",
+        title: "Igrejas Santa Cruz dos Curtume e Santa Luzia",
+        description: "Reserve o último dia para visitar igrejas mais afastadas, como a Santa Cruz dos Curtume e a singela Santa Luzia. Cada uma guarda histórias e particularidades que complementam a rica espiritualidade da cidade",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-1.jpeg",
-        title: "Roda de Samba de Coco",
-        description: "Participe de uma roda de Samba de Coco, ritmo tradicional da região que combina percussão, canto e dança em uma celebração comunitária onde todos são convidados a participar.",
+        image: "src/assets/tourism/38.jpg",
+        title: "Passeio de Barco ou Bar do Bode",
+        description: "Escolha entre um último passeio de barco pelo São Francisco ou um almoço no rústico Bar e Restaurante do Bode, com pratos típicos de dar água na boca.",
         period: "tarde"
       },
+
     ],
   },
   8: {
     id: 8,
-    title: "Dia 8 - Cidades Vizinhas",
+    title: "Dia 8 - A Natureza do Interior: Visita à Zona Rural",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Visita a Piranhas",
-        description: "Conheça a cidade histórica de Piranhas, também às margens do São Francisco, que preserva um importante conjunto arquitetônico do século XIX e foi cenário de eventos importantes da história do cangaço.",
+        image: "src/assets/tourism/39.jpg",
+        title: " Itaporanga e Buraco Restaurante",
+        description: "Saia da cidade e siga pela AL-110 até o povoado de Itaporanga (cerca de 15 minutos de carro ou 25 de van). Lá, visite o Bar e Restaurante do Buraco, cercado por natureza, lagos e plantações. A comida é feita no fogão à lenha e a recepção é calorosa.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
-        title: "Passeio pelo Cânion do São Francisco",
-        description: "Faça um passeio de barco pelo impressionante Cânion do São Francisco, formação geológica de tirar o fôlego que pode ser acessada a partir da cidade de Piranhas.",
-        period: "tarde"
+        image: "src/assets/tourism/40.png",
+        title: "Jantar no Oushe Burguer",
+        description: "De volta à cidade, experimente os hambúrgueres artesanais e as batatas crocantes do Oushe Burguer, com ambiente moderno e jovem.",
+        period: "noite"
       },
     ],
   },
@@ -196,16 +245,22 @@ export const daysData: DaysDataType = {
     sections: [
       {
         image: "src/assets/carousel/routes/slider-1.jpeg",
-        title: "Massagem com Ervas Locais",
-        description: "Experimente uma sessão de massagem terapêutica que utiliza óleos essenciais extraídos de plantas da região, uma prática que combina conhecimentos tradicionais com técnicas modernas de bem-estar.",
+        title: "Jardim de Eventos e interação com moradores",
+        description: "Passeie pelo Jardim de Eventos, onde frequentemente acontecem feirinhas, apresentações de capoeira e rodas de samba. Converse com os locais e sinta-se parte da cidade.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-2.jpeg",
-        title: "Pôr do Sol no Mirante",
-        description: "Termine o dia apreciando o espetacular pôr do sol no Mirante do São Francisco, um momento de contemplação que oferece vistas panorâmicas do rio e da cidade iluminada pelos últimos raios de sol.",
+        image: "src/assets/tourism/41.png",
+        title: "Atividades esportivas",
+        description: "À tarde, pegue sua camisa e vá até o Estadio Alfredo Leahy, onde ocorrem os jogos do Sport Club Penedense. Se preferir, faça uma caminhada ou ande de bicicleta pela orla do rio, aproveitando a brisa fresca e a vista.",
         period: "tarde"
       },
+      {
+        image: "src/assets/tourism/42.jpg",
+        title: "Jantar no Restaurante do Hotel São Francisco",
+        description: "Para encerrar o dia, jante no restaurante do Hotel São Francisco, que oferece pratos da culinária local com um toque contemporâneo. O ambiente é acolhedor e a vista para o rio é deslumbrante.",
+        period: "noite"
+      }
     ],
   },
   10: {
@@ -213,15 +268,15 @@ export const daysData: DaysDataType = {
     title: "Dia 10 - Compras e Despedida",
     sections: [
       {
-        image: "src/assets/carousel/routes/slider-3.jpeg",
+        image: "",
         title: "Compras no Comércio Local",
-        description: "Visite as lojas do centro histórico para comprar lembranças, artesanato e produtos típicos como doces, licores e itens decorativos que representam a rica cultura de Penedo.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         period: "manhã"
       },
       {
-        image: "src/assets/carousel/routes/slider-1.jpeg",
+        image: "",
         title: "Jantar de Despedida",
-        description: "Despeça-se da cidade com um jantar especial em um dos restaurantes tradicionais, relembrando os momentos especiais passados em Penedo e planejando seu retorno a este lugar encantador.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         period: "noite"
       },
     ],
