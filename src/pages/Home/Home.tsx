@@ -42,32 +42,27 @@ function Home() {
               <SplideSlide className={styles.splide__slide}>
                 <div className={styles.slide_widget_1 + " " + styles.slide_widget}>
                   <div className={styles.text_overlay}>
-                    <h3>LOREM IPSUM</h3>
-                    <h2>LOREM IPSUM DOLOR</h2>
+                    <h2>Centro Histórico de Penedo</h2>
                   </div>
                 </div>
                 <div className={styles.slide_widget_2 + " " + styles.slide_widget}>
                   <div className={styles.text_overlay}>
-                    <h3>LOREM IPSUM</h3>
-                    <h2>LOREM IPSUM DOLOR</h2>
+                    <h2>Convento Santa Maria dos Anjos</h2>
                   </div>
                 </div>
                 <div className={styles.slide_widget_3 + " " + styles.slide_widget}>
                   <div className={styles.text_overlay}>
-                    <h3>LOREM IPSUM</h3>
-                    <h2>LOREM IPSUM DOLOR</h2>
+                    <h2>Porto da Balsa de Penedo</h2>
                   </div>
                 </div>
                 <div className={styles.slide_widget_4 + " " + styles.slide_widget}>
                   <div className={styles.text_overlay}>
-                    <h3>LOREM IPSUM</h3>
-                    <h2>LOREM IPSUM DOLOR</h2>
+                    <h2>Igreja São Gonçalo Garcia</h2>
                   </div>
                 </div>
                 <div className={styles.slide_widget_5 + " " + styles.slide_widget}>
                   <div className={styles.text_overlay}>
-                    <h3>LOREM IPSUM</h3>
-                    <h2>LOREM IPSUM DOLOR</h2>
+                    <h2>Rua Barão do Rio Branco</h2>
                   </div>
                 </div>
               </SplideSlide>
