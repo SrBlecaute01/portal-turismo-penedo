@@ -5,7 +5,7 @@ import styles from './Hotels.module.css';
 import RatingCard from "../../components/RatingCard/RatingCard.tsx";
 import Footer from "../../components/Footer/Footer.tsx";
 
-const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const images = Object.values(import.meta.glob('../../assets/carousel/hotels/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
 const hotelImages = Object.values(import.meta.glob('../../assets/hotels/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 
@@ -14,6 +14,7 @@ const hoteis =[
     id: 1,
     title: "Hotel Encantos de Penedo",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Situado na Rodovia AL-110, nº 195, bairro Santa Luzia, em Penedo (AL), o Hotel Encantos de Penedo é uma hospedagem que combina conforto e praticidade.<br/>
@@ -26,6 +27,7 @@ const hoteis =[
     id: 2,
     title: "Pousada Toca do Vale",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Situada no Residencial Vale do São Francisco, nº 10, bairro Dom Constantino, em Penedo (AL), a Pousada e Restaurante Toca do Vale combina hospedagem acolhedora com uma experiência gastronômica regional.<br/>
@@ -38,6 +40,7 @@ const hoteis =[
     id: 3,
     title: "Hotel O Laçador",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Situada na Rodovia Engenheiro Joaquim Gonçalves, nº 17, bairro Cohab, em Penedo (AL), a Pousada e Churrascaria O Laçador combina hospedagem acolhedora com uma experiência gastronômica regional<br/>
@@ -50,6 +53,7 @@ const hoteis =[
     id: 4,
     title: "Hotel São Francisco",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Localizado em uma das áreas mais tradicionais e encantadoras da cidade, o Hotel São Francisco está situado na Av. Floriano Peixoto, 237 - Centro Histórico, Penedo(AL), 57200-000. A poucos passos dos principais pontos turísticos e com fácil acesso ao Rio São Francisco, o hotel oferece uma estadia acolhedora, ideal tanto para turistas quanto para viajantes a trabalho.<br/>
@@ -61,6 +65,7 @@ const hoteis =[
     id: 5,
     title: "Cellya's Pousada",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Situada na Rodovia Engenheiro Joaquim Gonçalves, nº 1115, em Penedo (AL), a Cellya's Pousada é uma excelente escolha para viajantes que buscam conforto e praticidade.<br/>
@@ -74,6 +79,7 @@ const hoteis =[
     id: 6,
     title: "Pousada Colonial Penedo",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         A Pousada Colonial Penedo está localizada na Praça Doze de Abril, 21, Centro Histórico, em Penedo (AL), oferecendo uma experiência aconchegante e confortável para os visitantes que desejam explorar a charmosa cidade.<br/>
@@ -86,6 +92,7 @@ const hoteis =[
     id: 7,
     title: "Hotel Rochedo",
     to: "#",
+    rating_value: undefined,
     description: 
       <span>
         Localizado na Rodovia Engenheiro Joaquim Gonçalves, nº 700, bairro Dom Constantino, em Penedo (AL), o Hotel Rochedo combina conforto e praticidade para seus hóspedes.<br/>
@@ -104,6 +111,7 @@ function Hotels() {
       text={hotel.title}
       image={{
         title: "Imagem do " + hotel.title,
+        rating_value: Boolean(hotel.rating_value) ? hotel.rating_value : undefined,
         image: hotel.image
       }}
       to={hotel.to}
@@ -117,12 +125,12 @@ function Hotels() {
       <Navbar/>
 
       {/* Carousel component*/}
-      <Carousel text = 'Principais Destinos' images={images.map(image => image.default)}/>
+      <Carousel text = 'Principais Destinos' searchbar = {false} images={images.map(image => image.default)}/>
 
       {/* Main Content Container*/}
       <div className={styles.hotelsContent}>
         {/* New Slider code using Swiper component*/}
-        <SliderCard text="Mais procurados" cards={cards_to_scroll}/>
+        <SliderCard text="Mais procurados" sorting = {false} cards={cards_to_scroll}/>
 
         {/* Card list with placeholder cards */}
         <div className={styles.cardsListContainer}>
