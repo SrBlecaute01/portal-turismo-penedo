@@ -62,15 +62,16 @@ function RatingCard(props: RatingCardProps) {
 }
 
 
-function generateStars(rating: number = -1, ratingPropsOverride?: RatingProps) {
-  const maxStars = 5;
-
-  if (rating < 0 || rating > maxStars) {
+function generateStars(rating: number = 5, ratingPropsOverride?: RatingProps) {
+  /* Checks if number is between the limit of stars*/
+  if (rating < 0 || rating > 5) {
     return
   }
   
+  /*sets the number of stars to show as the quantity in the parameter*/
   defaultRatingProps.defaultValue = rating;
 
+  /*creates and then return the stars element*/
   const ratingProps = { ...defaultRatingProps, ...ratingPropsOverride };
 
   return <Rating {...ratingProps}/>
