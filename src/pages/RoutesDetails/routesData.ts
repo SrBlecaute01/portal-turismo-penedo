@@ -33,7 +33,7 @@ export const daysData: DaysDataType = {
     title: "Dia 1 - História e Cultura",
     sections: [
       {
-        image: "src/assets/tourism/24.jpg",
+        image: "./src/assets/tourism/24.jpg",
         title: "Museu do Paço Imperial",
         description: "Comece seu dia no coração do centro histórico. O Museu Paço Imperial, instalado em um antigo palácio, abriga relíquias do período colonial, com destaque para móveis, quadros e objetos que remontam aos tempos do Império. O prédio em si é uma viagem ao passado, com janelas amplas e vista privilegiada para o Rio São Francisco.",
         period: "manhã"
