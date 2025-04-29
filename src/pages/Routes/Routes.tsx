@@ -48,8 +48,8 @@ function Routes() {
     setFilteredRoutes(filtered);
   };
 
-  const handleCardClick = (routeId: number) => {
-    navigate(`/rotas/${routeId}`);
+  const handleCardClick = (routeDays: number) => { 
+    navigate(`/rotas/${routeDays}`);
   };
 
   return (
@@ -70,7 +70,7 @@ function Routes() {
       </div>
       <div className={styles.routesContainer}>
         {filteredRoutes.map((route) => (
-          <div key={route.id} className={styles.routesItems} onClick={() => handleCardClick(route.id)}>
+          <div key={route.id} className={styles.routesItems} onClick={() => handleCardClick(route.days)}>
             <RouteCard to={route.to} title={route.title} description={route.description} days={route.days} image={route.image}/>
           </div>
         ))}
