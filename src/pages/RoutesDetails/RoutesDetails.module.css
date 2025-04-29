@@ -29,46 +29,6 @@
     object-position: center 65%;
 }
   
-.title_overlay {
-    position: absolute;
-    bottom: 50px;
-    left: 30px;
-    color: #fff;
-    z-index: 10;
-}
-  
-.title_overlay h1 {
-    color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-  
-.dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-}
-  
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: white;
-    opacity: 0.7;
-}
-  
-.active {
-    opacity: 1;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);  
-}
-  
 .content_section {
     padding: 30px;
     max-width: 1200px;
@@ -76,57 +36,428 @@
 }
   
 .main_content {
-    margin-bottom: 30px;
-    line-height: 1.6;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    padding: 2.5rem;
+    margin: 0 auto 3rem;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    border-top: 4px solid #1D85D9;
 }
-  
+
+.main_content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin: 0;
+    font-weight: 300;
+    text-align: justify;
+}
+
 .info_section {
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 1.5rem;
     gap: 30px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-  
+
+.info_section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
 .left_image {
     flex-direction: row;
 }
-  
+
 .right_image {
     flex-direction: row-reverse;
 }
-  
+
 .image_container {
-    flex: 0 0 40%;
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-  
+
 .image_container img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 300px;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
-  
+
+.info_section:hover .image_container img {
+    transform: scale(1.03);
+}
+
 .section_content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0.75rem;
 }
-  
-.section_content h2 {
-    color: #007bff;
-    margin-bottom: 15px;
+
+.section_content h3 {
+    color: #1D85D9;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
-  
+
+.section_content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #1D85D9;
+    border-radius: 2px;
+}
+
 .section_content p {
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.05rem;
+    text-align: justify;
 }
-  
+
+.day_section {
+    margin-bottom: 4rem;
+    padding: 2.5rem;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.day_title {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.day_title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #1D85D9, transparent);
+}
+
+.available_routes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.route_link {
+    padding: 12px 20px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.route_link:hover {
+    background-color: #d35400;
+}
+
+.period_section {
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.period_title {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #1D85D9;
+    padding: 0.5rem 1.5rem;
+    background-color: #f0f8ff;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.route_title_centered {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin: 0.5rem 0 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.route_title_centered::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #1D85D9;
+    border-radius: 3px;
+}
+
+.route_selector_container {
+    margin-bottom: 2.5rem;
+    text-align: center;
+    background-color: #f8fbff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.route_selection_heading {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.routes_selector {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 1.5rem 0 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.routes_selector::before {
+    content: "Selecione o número de dias:";
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.95rem;
+    color: #555;
+    white-space: nowrap;
+}
+
+.route_option_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.route_option_wrapper_active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background-color: #1D85D9;
+    border-radius: 3px;
+}
+
+.route_option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    background-color: #f5f9ff;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0.5rem;
+}
+
+.route_option_wrapper:hover .route_option:not(:disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(29, 133, 217, 0.15);
+}
+
+.route_option_active {
+    background-color: #1D85D9;
+    color: white;
+    border-color: #1D85D9;
+}
+
+.route_option_number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.route_option_label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.route_description {
+    font-size: 0.9rem;
+    color: #1D85D9;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.day_navigation {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 0.75rem;
+}
+
+.day_navigation :global(.days_navigation) {
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+}
+
+.day_navigation :global(.day_button) {
+    margin: 0 0.3rem;
+    font-size: 0.95rem;
+    width: 32px;
+    height: 32px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.day_navigation :global(.active_day) {
+    background-color: #1D85D9;
+    color: white;
+    border: none;
+}
+
+.day_navigation :global(.nav_arrow) {
+    width: 32px;
+    height: 32px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
 @media (max-width: 768px) {
     .info_section {
         flex-direction: column;
+        padding: 1.25rem;
+        gap: 15px;
+        margin-bottom: 1rem;
     }
     
     .right_image {
         flex-direction: column;
+    }
+    
+    .image_container {
+        flex: 0 0 100%;
+    }
+    
+    .image_container img {
+        height: 220px;
+    }
+    
+    .main_content {
+        padding: 1.5rem;
+    }
+    
+    .day_section {
+        padding: 1.5rem;
+    }
+    
+    .section_content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .day_title {
+        font-size: 1.6rem;
+    }
+
+    .period_section {
+        margin-bottom: 0.5rem;
+    }
+
+    .period_title {
+        font-size: 1.4rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .route_title_centered {
+        font-size: 1.8rem;
+    }
+
+    .route_option {
+        width: 60px;
+        height: 60px;
+    }
+
+    .route_option_number {
+        font-size: 1.5rem;
+    }
+
+    .route_option_label {
+        font-size: 0.7rem;
+    }
+
+    .route_description {
+        font-size: 0.8rem;
+    }
+
+    .route_selection_heading {
+        font-size: 1rem;
+    }
+    
+    .routes_selector::before {
+        font-size: 0.85rem;
+        top: -25px;
+    }
+
+    .day_navigation {
+        margin-top: 0.4rem;
+        padding-top: 0.5rem;
+    }
+    
+    .day_navigation :global(.day_button) {
+        margin: 0 0.15rem;
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+    
+    .day_navigation :global(.nav_arrow) {
+        width: 28px;
+        height: 28px;
     }
 }

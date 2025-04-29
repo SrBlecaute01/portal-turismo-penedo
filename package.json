@@ -17,6 +17,7 @@
     "@mui/material": "^6.4.7",
     "@react-google-maps/api": "^2.20.6",
     "@splidejs/react-splide": "^0.7.11",
+    "framer-motion": "^12.9.2",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

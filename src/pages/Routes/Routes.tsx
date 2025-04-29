@@ -5,57 +5,34 @@ import RouteCard from "./components/RouteCard";
 import NumberInput from "../../components/Imput/NumberInput/NumberInput.tsx";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer/Footer.tsx";
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const routes = [
   {
     id: 1,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/1",
-    days: 1,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    title: "Roteiro para 3 dias em Penedo",
+    to: "/rotas/3",
+    days: 3,
+    description: "Explore monumentos históricos, navegue pelas águas do Velho Chico e mergulhe nas tradições e sabores da cultura local.",
     image: images[0].default
   },
   {
     id: 2,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/2",
-    days: 3,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    title: "Roteiro para 7 dias em Penedo",
+    to: "/rotas/7",
+    days: 7,
+    description: "Entre igrejas históricas, natureza exuberante e sabores regionais, descubra a cidade que respira tradição e acolhimento.",
     image: images[1].default
   },
   {
     id: 3,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/3",
-    days: 5,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
+    title: "Roteiro para 10 dias em Penedo",
+    to: "/rotas/10",
+    days: 10,
+    description: "Mergulhe em séculos de história, descubra paisagens deslumbrantes e saboreie a autenticidade da cultura ribeirinha.",
     image: images[2].default
-  },
-  {
-    id: 4,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/4",
-    days: 7,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[0].default
-  },
-  {
-    id: 5,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/5",
-    days: 15,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[1].default
-  },
-  {
-    id: 6,
-    title: "Lorem ipsum dolar sit amet sinet rilen out seed cityfron.",
-    to: "/rotas/6",
-    days: 30,
-    description: "Lorem ipsum dolar sit amet, rilen out seed cityfron.",
-    image: images[2].default
-  },
+  }
 ];
 
 function Routes() {
@@ -78,10 +55,10 @@ function Routes() {
   return (
     <div className={styles.rootContainer}>
       <Navbar/>
-      <div className={styles.carouselContainer}>
-        <Carousel images={images.map(image => image.default)}/>
-        <div className={styles.carouselText}>Nossas rotas</div>
-      </div>
+      <Carousel
+        text="Nossas rotas"
+        images={images.map(image => image.default)}
+      />
       <div className={styles.numberContainer}>
         <p>Quantos dias você espera passar ?</p>
         <NumberInput
@@ -98,6 +75,7 @@ function Routes() {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   )
 }

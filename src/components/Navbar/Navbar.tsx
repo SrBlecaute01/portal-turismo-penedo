@@ -1,4 +1,4 @@
-import {NavLink, To} from "react-router-dom";
+import {NavLink, To, useNavigate} from "react-router-dom";
 import styles from './Navbar.module.css';
 import Logo from '../../assets/svg/logo.svg?react';
 
@@ -18,9 +18,13 @@ function NavRoute({to, label}: NavRouteProps) {
 }
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <nav className={styles.container}>
-      <Logo className={styles.logo}/>
+      <Logo
+        className={styles.logo}
+        onClick={() => navigate('/')}
+      />
       <ul className={styles.routes}>
         <NavRoute to="/" label="Início"/>
         <NavRoute to="/hoteis" label="Hotéis"/>

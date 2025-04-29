@@ -1,18 +1,21 @@
 import styles from "./RatingCard.module.css";
 import {Rating, RatingProps} from "@mui/material";
+import {NavLink, To} from "react-router-dom";
 
 export interface RatingCardInfoProps {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
 }
 
 export interface RatingCardImageProps {
   image: string;
   title: string;
+  rating_value?: number;
   className?: string;
 }
 
 export interface RatingCardProps {
+  to?: To;
   text?: string;
   className?: string;
   image: RatingCardImageProps;
@@ -29,25 +32,49 @@ const defaultRatingProps: RatingProps = {
 }
 
 function RatingCard(props: RatingCardProps) {
-  const ratingProps = { ...defaultRatingProps, ...props.rating };
+  const toLink = props.to ? props.to : "#";
   return(
     <div className={styles.ratingContainer + " " + (props.className ?? "")}>
       <div className={styles.cardContainer}>
         <img className={styles.cardImage + " " + (props.image.className ?? "")} src={props.image.image} alt={props.image.title}/>
         <div className={styles.cardContent}>
-          <div className={styles.cardText}>{props.text}</div>
-          <Rating {...ratingProps}/>
+          <div className={styles.cardText}>
+            <NavLink to = {toLink}>
+              {props.text}
+            </NavLink>
+          </div>
+          {generateStars(props.image.rating_value, props.rating)}
         </div>
       </div>
 
       {(props.info) &&
           <div className={styles.infoContainer}>
-              <div className={styles.infoTitle}>{props.info.title}</div>
-              <div className={styles.infoDescription}>{props.info.description}</div>
+            <div className={styles.infoTitle}>
+              <NavLink to = {toLink}>
+                {props.info.title}
+              </NavLink>
+            </div>
+            <div className={styles.infoDescription}>{props.info.description}</div>
           </div>
       }
     </div>
   );
+}
+
+
+function generateStars(rating: number = 5, ratingPropsOverride?: RatingProps) {
+  /* Checks if number is between the limit of stars*/
+  if (rating < 0 || rating > 5) {
+    return
+  }
+  
+  /*sets the number of stars to show as the quantity in the parameter*/
+  defaultRatingProps.defaultValue = rating;
+
+  /*creates and then return the stars element*/
+  const ratingProps = { ...defaultRatingProps, ...ratingPropsOverride };
+
+  return <Rating {...ratingProps}/>
 }
 
 export default RatingCard;

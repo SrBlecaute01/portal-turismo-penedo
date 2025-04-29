@@ -10,6 +10,7 @@ import 'swiper/css/scrollbar';
 
 interface CarouselProps extends SwiperProps {
   text?: string;
+  searchbar?: boolean;
   images: string[];
 }
 
@@ -48,9 +49,11 @@ function Carousel(props: CarouselProps) {
         <div className={styles.carouselText}>{props.text}</div>
       }
       {/* Search bar */}
-      <div className={styles.carouselSearchbar}>
-        <Searchbar/>
-      </div>
+      {Boolean(props.searchbar) &&
+        <div className={styles.carouselSearchbar}>
+          <Searchbar/>
+        </div>
+      }
     </div>
   )
 }

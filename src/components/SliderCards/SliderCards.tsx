@@ -5,10 +5,11 @@ import {Autoplay, Navigation} from "swiper/modules";
 
 interface SliderProps {
     text?: string;
+    sorting?: boolean;
     cards: React.ReactNode[];
 }
 
-function CardSlider({text, cards}: SliderProps) {
+function CardSlider({text, sorting, cards}: SliderProps) {
 
     return(
         <div className={styles.cards_wanted_container}>
@@ -17,15 +18,17 @@ function CardSlider({text, cards}: SliderProps) {
                     {/* Text over the slider */}
                     <p className={styles.cards_wanted_text}>{text}</p>
                     {/* Sorting options dropdown */}
-                    <div className={styles.sort_container}>
-                        <label htmlFor="sort">Ordenar por</label>
-                        {/* function for sorting not implemented yet*/}
-                        <select id="sort" value={0} >
-                            <option>Ordem alfabética</option>
-                            <option>Mais avaliados</option>
-                            <option>Menor preço</option>
-                        </select>
-                    </div>
+                    {sorting && 
+                        <div className={styles.sort_container}>
+                            <label htmlFor="sort">Ordenar por</label>
+                            {/* function for sorting not implemented yet*/}
+                            <select id="sort" value={0} >
+                                <option>Ordem alfabética</option>
+                                <option>Mais avaliados</option>
+                                <option>Menor preço</option>
+                            </select>
+                        </div>
+                    }
                 </div>
             }
             <Swiper
