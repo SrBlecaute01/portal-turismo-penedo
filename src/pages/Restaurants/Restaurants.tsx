@@ -1,61 +1,148 @@
 import Navbar from "../../components/Navbar";
-import Card from "../../components/Card/";
 import SliderCard from "../../components/SliderCards";
 import Carousel from "../../components/Carousel";
 import styles from './Restaurants.module.css';
 import Footer from "../../components/Footer/Footer.tsx";
+import RatingCard from "../../components/RatingCard/RatingCard.tsx";
 
-const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const restaurantImages = Object.values(import.meta.glob('../../assets/restaurants/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const restaurantImagesMap = new Map<string, string>(
+  restaurantImages.map((module) => {
+    const path = module.default;
+    const parts = path.split('/');
+    return [parts[parts.length - 1].split("-")[0].replace(/\D/g, ""), path];
+  })
+);
+
+console.log(restaurantImagesMap);
+
+const restaurantsCarousel = Object.values(import.meta.glob('../../assets/carousel/restaurants/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const restaurantsContent = [
+  {
+    id: 0,
+    title: "Restaurante Daruma",
+    to: "#",
+    description: "Localizado na Av. Getúlio Vargas, 223 - Centro, Penedo - AL. Oferecem refeições como Sushi, coquetéis e pratos vegetarianos..."
+  },
+  {
+    id: 1,
+    title: "Restaurante Maurício de Nassau",
+    to: "#",
+    description: "Localizado na Rua Dom Jonas Batinga, 178 – Centro Histórico, Penedo - AL. Oferem Café da Manhã, Almoço, Jantar e Petiscos..."
+  },
+  {
+    id: 2,
+    title: "Restaurante do Júnior",
+    to: "#",
+    description: "Localizado no primeiro andar do Penedo Rio Shopping situado na Av. Comendador Peixoto, 127 - Centro Histórico, Penedo - AL. Oferecem Café da Manhã, Almoço, Jantar e Acompanhamentos..."
+  },
+  {
+    id: 3,
+    title: "Restaurante do Bode",
+    to: "#",
+    description: "Localizada na Rodovia Mário Freire Leahy – Senhor do Bonfim, Penedo - AL. Oferecem Café da Manhã, Almoço, Jantar e Acompanhamentos..."
+  },
+  {
+    id: 4,
+    title: "Yspeto’s Grill",
+    to: "#",
+    description: "Localizado na Praça Jácome Calheiros, 79 - Centro Histórico, Penedo - AL. Oferecem Almoço, Jantar Típico, Petisco, Churrasquinho, Batata Frita, Sushi, Hambúrgueres e Pizza..."
+  },
+  {
+    id: 5,
+    title: "Oushe Burguer",
+    to: "#",
+    description: "Localizado na Rua Tenente Eulógio Bispo, Rua da Upa, 45 - Santa Luzia, Penedo - AL. Oferecem Pizza, Hambúrgueres, Passaporte, Sobremesas e Acompanhamentos..."
+  },
+  {
+    id: 6,
+    title: "Restaurante Portal Grill",
+    to: "#",
+    description: "Localizado na Rod. Eng Joaquim Gonçalves – Dom Constantino, Penedo - AL. Oferecem Almoço, Jantar e Pizza..."
+  },
+  {
+    id: 7,
+    title: "Vila Dão Pedu",
+    to: "#",
+    description: "Localizado na Av. Comendador Peixoto – Centro Histórico, Penedo - AL. Oferecem Almoço, Jantar Típico, Petisco, Churrasquinho, Batata Frita, Sushi, Hambúrgueres e Pizza..."
+  },
+  {
+    id: 8,
+    title: "Restaurante Oratório",
+    to: "#",
+    description: "Localizado na Av. Alexandre Toledo, Orla de Penedo – Centro Histórico, Penedo - AL. Oferecem Almoço, Jantar e Petisco..."
+  },
+  {
+    id: 9,
+    title: "Espetinho da Colina",
+    to: "#",
+    description: "Localizado na Rod. Mário Freire Leahy, 333-683 - Sr. do Bonfim, Penedo - AL. Oferecem Churrasquinho, petiscos e arroz carreteiro..."
+  },
+  {
+    id: 10,
+    title: "Restaurante Forte da Rocheira",
+    to: "#",
+    description: "Localizado na Rua da Rocheira, 02, Centro Histórico, Penedo - AL. Oferecem Almoço e petisco..."
+  },
+  {
+    id: 11,
+    title: "Restaurante Prato Cheio",
+    to: "#",
+    description: "Localizado na Av. Wanderley - Santa Luzia, Penedo - AL. Oferecem da manhã, almoço e jantar..."
+  },
+  {
+    id: 12,
+    title: "Restaurante do Hotel São Francisco",
+    to: "#",
+    description: "Localizado na Av. Floriano Peixoto, 237, Centro Histórico, Penedo-AL. Oferecem Café da manhã, Almoço, Jantar e Lanches..."
+  }
+];
+
 
 function Restaurants() {
-
-  let description = "Lorem ipsum calypso voutom arumtac acadan çarcurt irfi cardeb oa poisqu andoche gonopa rámesin tobemo tempov oache gouom êsdef ériasv ouvo andop ropar ávoudi retal verop êsoapu rarmeu paladarfi carbemàvo tadee fazer oquequi zer ema tarmin hasau dade da pupun hacomca féeu vou naesta çãoda sdocas vouve rorexp anoes tádio vousa iránoi tecom osami goseu voume jogare uvou lano mangal dasgar çasvou nofor tedop resépio ede poisdo pointd oaçaí euque romediv ertir"
-  
-  let cards_to_scroll = [
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/3388EE/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/EE3388/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/88EE33/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/5533FF/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/FF5533/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={5} imageUrl={`https://placehold.co/150x100/33FF55/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={4} imageUrl={`https://placehold.co/150x100/CC00FF/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={4} imageUrl={`https://placehold.co/150x100/FFCC00/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={4} imageUrl={`https://placehold.co/150x100/00FFCC/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={3} imageUrl={`https://placehold.co/150x100/0066FF/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={3} imageUrl={`https://placehold.co/150x100/FF0066/FFFFFF/`}/>,
-    <Card title="Restaurant Exemplo Calipso" to="#" stars={3} imageUrl={`https://placehold.co/150x100/66FF00/FFFFFF/`}/>,
-  ];
-
   return (
-    <div className={styles.rootContainer}>
+    <div className={styles.restaurantsContainer}>
       <Navbar/>
-
-      <div className={styles.carouselContainer}>
-        <Carousel images={images.map(image => image.default)}/>
-        <div className={styles.carouselText}>Principais Restaurantes</div>
-      </div>
-
-      <div className={styles.slider_cards}>
-        <SliderCard cards={cards_to_scroll}/>
-      </div>
-
-      <div className={styles.card_list}>
-        <div className={styles.horizontal_cards}>
-          <Card title="Restaurant Exemplo Calipso" to="#" stars={4.5} imageUrl="https://placehold.co/150x100/3388EE/FFFFFF/"/>
-          <Card title="Restaurant Exemplo Calipso" to="#" description={description} isExpanded={true}/>
-        </div>
-        <div className={styles.horizontal_cards}>
-          <Card title="Restaurant Exemplo Calipso" to="#" stars={1} imageUrl="https://placehold.co/150x100/EE3388/FFFFFF/"/>
-          <Card title="Restaurant Exemplo Calipso" to="#" description={description} isExpanded={true}/>
-        </div>
-        <div className={styles.horizontal_cards}>
-          <Card title="Restaurant Exemplo Calipso" to="#" stars={3} imageUrl="https://placehold.co/150x100/88EE33/FFFFFF/"/>
-          <Card title="Restaurant Exemplo Calipso" to="#" description={description} isExpanded={true}/>
+      <Carousel
+        text='Principais Destinos'
+        images={restaurantsCarousel.map(image => image.default)}
+      />
+      <div className={styles.restaurantsContent}>
+        <SliderCard
+          text="Mais procurados"
+          cards={restaurantsContent.map(restaurants => {
+            return (
+              <RatingCard
+                text={restaurants.title.length <= 25 ? restaurants.title : restaurants.title.substring(0, 25) + "..."}
+                to={restaurants.to}
+                image={{
+                  title: "Imagem do " + restaurants.title,
+                  image: String(restaurantImagesMap.get(String(restaurants.id)))
+                }}
+              />
+            )
+          })}
+        />
+        <div className={styles.cardsContainer}>
+          {restaurantsContent.map((restaurants) =>
+            <div key={restaurants.id}>
+              <RatingCard
+                text={restaurants.title}
+                image={{
+                  title: "Imagem do " + restaurants.title,
+                  image: String(restaurantImagesMap.get(String(restaurants.id)))
+                }}
+                info={{
+                  title: restaurants.title,
+                  description: restaurants.description
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
       <Footer/>
     </div>
   )
 }
-
 export default Restaurants;
