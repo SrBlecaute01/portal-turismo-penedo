@@ -80,12 +80,13 @@ const Routes = () => {
       <Navbar />
       <div className={styles.rota_container}>
         <div className={styles.header_container}>
-          <Carousel images={images.map(image => image.default)} />
+          <Carousel 
+            images={images.map(image => image.default)} 
+            text={routeData.title} 
+          />
         </div>
 
         <div className={styles.content_section}>
-          <h1 className={styles.route_title_centered}>{routeData.title}</h1>
-          
           <div className={styles.main_content}>
             <p style={{ textAlign: "justify" }}>{routeData.description}</p>
           </div>
