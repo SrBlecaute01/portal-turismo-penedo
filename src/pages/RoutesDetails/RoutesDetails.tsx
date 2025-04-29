@@ -1,11 +1,10 @@
 import Navbar from "../../components/Navbar";
 import styles from "./RoutesDetails.module.css";
 import Carousel from "../../components/Carousel";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer.tsx";
 import { useState, useEffect } from "react";
 import DaysNavigation from "../../components/DaysNavigation/DaysNavigation";
-import RouteSelector from "../../components/RouteSelector/RouteSelector";
 import { daysData, routesData } from "./routesData"; 
 
 const images = Object.values(import.meta.glob('../../assets/carousel/routes/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
@@ -49,47 +48,17 @@ const PeriodSection = ({ title, sections, startIndex = 0 }: {
 const Routes = () => {
   const { id } = useParams();
   const paramId = Number(id);
-  const navigate = useNavigate();
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
 
   // Encontrar o ID da rota válido mais próximo
-  const validRouteIds = [1, 2, 3, 5, 7, 10];
+  const validRouteIds = [3, 7, 10];
   const routeId = validRouteIds.find(validId => validId >= paramId) || validRouteIds[validRouteIds.length - 1];
   const routeData = routesData[routeId];
-
-  // Navegar entre rotas
-  const navigateToRoute = (targetId: number) => {
-    if (targetId !== routeId) {
-      navigate(`/rotas/${targetId}`);
-      setCurrentDayIndex(0);
-    }
-  };
 
   // Resetar o índice do dia quando a rota mudar
   useEffect(() => {
     setCurrentDayIndex(0);
   }, [id]);
-
-  // Tela para roteiro não encontrado
-  if (!routeData) {
-    return (
-      <>
-        <Navbar />
-        <div className={styles.rota_container}>
-          <h1>Roteiro não encontrado</h1>
-          <p>Desculpe, não conseguimos encontrar o roteiro solicitado. Por favor, tente um dos nossos roteiros disponíveis.</p>
-          <div className={styles.available_routes}>
-            {Object.values(routesData).map(route => (
-              <a key={route.id} href={`/#/rotas/${route.id}`} className={styles.route_link}>
-                {route.title}
-              </a>
-            ))}
-          </div>
-        </div>
-        <Footer />
-      </>
-    );
-  }
 
   const dayId = routeData.days[currentDayIndex];
   const day = daysData[dayId];
@@ -111,17 +80,13 @@ const Routes = () => {
       <Navbar />
       <div className={styles.rota_container}>
         <div className={styles.header_container}>
-          <Carousel images={images.map(image => image.default)} />
+          <Carousel 
+            images={images.map(image => image.default)} 
+            text={routeData.title} 
+          />
         </div>
 
         <div className={styles.content_section}>
-          <RouteSelector 
-            currentRouteId={routeId} 
-            onRouteChange={navigateToRoute} 
-          />
-          
-          <h1 className={styles.route_title_centered}>{routeData.title}</h1>
-          
           <div className={styles.main_content}>
             <p style={{ textAlign: "justify" }}>{routeData.description}</p>
           </div>
