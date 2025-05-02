@@ -23,6 +23,7 @@
 }
 
 .cardContainer {
+    min-width: var(--rating-card-width);
     width: var(--rating-card-width);
     min-height: var(--rating-card-height);
     height: 100%;

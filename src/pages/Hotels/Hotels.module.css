@@ -7,6 +7,8 @@
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 3rem;
+  padding-left: 2%;
+  padding-right: 2%;
   /*
     display: grid;
     grid-template-columns: 1fr minmax(1220px, 1fr) 1fr;

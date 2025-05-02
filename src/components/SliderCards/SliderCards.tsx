@@ -42,7 +42,7 @@ function CardSlider({text, sorting, cards}: SliderProps) {
                         slidesPerView: 2,
                         spaceBetween: 18
                     },
-                    768: {
+                    850: {
                         slidesPerView: 3,
                         spaceBetween: 18
                     },
