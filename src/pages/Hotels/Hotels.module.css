@@ -15,7 +15,6 @@
 
 /* Card List Section*/
 
-/* New */
 .cardsListContainer {
   padding-top: 5%;
   grid-column-start: 2;
@@ -25,32 +24,5 @@
   row-gap: 50px;
 }
 
-/* Old and deprecated*/
-.card_list{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 1200px;
-  gap: 30px;
-}
-
-.horizontal_cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 0;
-  max-width: 1200px;
-  gap: 15px;
-}
-
 /* Responsivity section*/
 
-/*currently deprecated as horizontal_cards isn't being used*/
-@media (max-width: 768px) {
-  .horizontal_cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
