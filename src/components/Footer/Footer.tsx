@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
             </p>
           </address>
         </div>
-
+{/*
         <div className={styles.footerBlock}>
           <h3 className={styles.blockTitle}>Receba notícias via e-mail</h3>
           <div className={styles.newsletter}>
@@ -98,6 +98,7 @@ const Footer: React.FC = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda repellat minus dolorum perferendis, illum reprehenderit iure voluptatibus, rerum quidem quae officiis aliquid qui iusto, enim laudantium! Quod vel numquam quos. lorem
           </p>
         </div>
+        */}
       </div>
 
       <div className={styles.footerBottom}>

@@ -102,12 +102,11 @@ function Events() {
   const [filteredEvents] = useState(events);
   return (
     <div className={styles.rootContainer}>
-      <Navbar />
-      <div className={styles.carouselContainer}>
-        <Carousel images={images.map(image => image.default)}/>
-        <div className={styles.carouselText}>Eventos</div>
-      </div>
-
+      <Navbar/>
+      <Carousel
+        text="Eventos"
+        images={images.map(image => image.default)}
+      />
       <div className={styles.eventsContainer}>
         {filteredEvents.map((event) => (
           <div className={styles.eventsItems}>

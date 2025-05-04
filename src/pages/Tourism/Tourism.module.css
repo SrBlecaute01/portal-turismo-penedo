@@ -1,12 +1,11 @@
 .tourismContainer {
-    display: flex;
-    flex-direction: column;
+    min-height: 100vh;
 }
 
 .tourismContent {
-    display: grid;
-    grid-template-columns: 1fr minmax(1220px, 1fr) 1fr;
-    margin-bottom: 3rem;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto 3rem;
 }
 
 .cardsContainer {
