@@ -35,8 +35,22 @@ function CardSlider({text, sorting, cards}: SliderProps) {
                 loop={false}
                 className={styles.cards_wanted_carousel}
                 centeredSlides={false}
-                slidesPerView={4}
-                spaceBetween={25}
+                spaceBetween={10}
+                slidesPerView={1}
+                breakpoints={{
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 18
+                    },
+                    850: {
+                        slidesPerView: 3,
+                        spaceBetween: 18
+                    },
+                    1080: {
+                        slidesPerView: 4,
+                        spaceBetween: 25
+                    },
+                }}
                 modules={[Autoplay, Navigation]}
                 autoplay={{
                     delay: 2500,

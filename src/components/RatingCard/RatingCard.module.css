@@ -16,15 +16,17 @@
 }
 
 .ratingContainer {
-    height: var(--rating-card-height);
+    min-height: var(--rating-card-height);
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
 .cardContainer {
+    min-width: var(--rating-card-width);
     width: var(--rating-card-width);
-    height: var(--rating-card-height);
+    min-height: var(--rating-card-height);
+    height: 100%;
 
     box-shadow: var(--rating-card-shadow);
     background-color: var(--rating-card-backgroud);
@@ -48,6 +50,7 @@
 
     width: var(--rating-card-description-width);
     height: 100%;
+    min-height: var(--rating-card-height);
 
     box-shadow: var(--rating-card-shadow);
     background-color: var(--rating-card-backgroud);
@@ -91,10 +94,29 @@ a:hover {
 
 .infoDescription {
     text-align: justify;
-    text-justify: inter-word;
+    text-justify: auto;
 
     color: #5A5656;
 
     font-size: 20px;
     font-weight: 400;
 }
+
+/* Responsivity section*/
+@media (max-width: 768px) {
+    .ratingContainer {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cardContainer {
+        width: 100%;
+        max-width: var(--rating-card-width);
+    }
+    .infoContainer{
+        max-width: var(--rating-card-width);
+    }
+    .infoDescription{
+        text-justify: none;
+    }
+  }
