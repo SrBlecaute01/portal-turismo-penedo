@@ -106,12 +106,12 @@ const hoteis =[
 function Hotels() {
 
   /* Card "Array" for current placeholding */
-  let cards_to_scroll = (hoteis.map(hotel => (
+  const cards_to_scroll = (hoteis.map(hotel => (
     <RatingCard
       text={hotel.title}
       image={{
         title: "Imagem do " + hotel.title,
-        rating_value: Boolean(hotel.rating_value) ? hotel.rating_value : undefined,
+        rating_value: hotel.rating_value ? hotel.rating_value : undefined,
         image: hotel.image
       }}
       to={hotel.to}

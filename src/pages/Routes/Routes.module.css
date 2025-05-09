@@ -19,10 +19,12 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: auto auto auto;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
 
     align-content: center;
     justify-content: center;
+    justify-items: center;
 
     margin-top: 2%;
     margin-bottom: 2%;
@@ -30,4 +32,26 @@
 
 .routesItems {
     padding: 32px
+}
+
+@media only screen and (max-width: 960px) {
+    .routesContainer {
+        display: flex;
+        row-gap: 3rem;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem auto 3rem;
+    }
+
+    .numberContainer {
+        p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .routesItems {
+        padding: 0;
+    }
+
 }

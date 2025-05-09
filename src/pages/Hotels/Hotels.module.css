@@ -5,10 +5,8 @@
 /* Main content Container Section*/
 .hotelsContent {
   max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  padding-left: 2%;
-  padding-right: 2%;
+  box-sizing: border-box;
+  margin: 0 auto 3rem;
   /*
     display: grid;
     grid-template-columns: 1fr minmax(1220px, 1fr) 1fr;

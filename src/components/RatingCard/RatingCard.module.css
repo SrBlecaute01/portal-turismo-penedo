@@ -36,7 +36,6 @@
 
     overflow: hidden;
     border-radius: 15px;
-
 }
 
 .infoContainer {
@@ -103,20 +102,29 @@ a:hover {
 }
 
 /* Responsivity section*/
-@media (max-width: 768px) {
+@media only screen and  (max-width: 768px) {
+    .infoTitle {
+        font-size: 24px;
+    }
+
     .ratingContainer {
         height: auto;
         flex-direction: column;
         align-items: center;
     }
+
     .cardContainer {
         width: 100%;
         max-width: var(--rating-card-width);
     }
+
     .infoContainer{
         max-width: var(--rating-card-width);
+        padding: 24px;
     }
-    .infoDescription{
-        text-justify: none;
+
+    .infoDescription {
+        font-size: 16px;
+        text-align: left;
     }
   }
