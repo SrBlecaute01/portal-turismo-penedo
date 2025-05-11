@@ -9,5 +9,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), svgr()],
     base: env.VITE_BASE_URL,
+    build: {
+      chunkSizeWarningLimit: 1000,
+    }
   };
 });
