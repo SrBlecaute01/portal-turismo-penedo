@@ -20,7 +20,7 @@
 
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(345px, auto));
 
     align-content: center;
     justify-content: center;
