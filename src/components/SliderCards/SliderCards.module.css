@@ -3,7 +3,6 @@
     grid-column-start: 2;
 }
 
-
 .cards_wanted_text {
     font-size: 32px;
     font-weight: bold;
@@ -12,8 +11,8 @@
 }
 
 .card_container{
-    padding: 30px;
     width: 251px;
+    padding: 30px;
 
     --rating-card-height: 280px;
     --rating-card-width: 251px;

@@ -1,6 +1,6 @@
 .cardContainer {
-    width: 382px;
-    height: 430px;
+    max-width: 345px;
+    min-height: 375px;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
