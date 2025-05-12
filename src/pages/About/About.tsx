@@ -42,32 +42,38 @@ function About() {
                 alt="Penedo"
                 className={styles.description_image_left}
               />
-              <p className={styles.description_text_right}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum quam eros, sodales eget risus nec, auctor laoreet
-                sem. Curabitur a feugiat nibh, eget tincidunt tellus. Quisque
-                tristique lobortis dui, efficitur aliquet metus fermentum non.
-                Ut at lectus vitae erat vestibulum congue vel id sapien. Cras
-                consectetur eget mauris et maximus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Vestibulum quam eros, sodales eget
-                risus nec, auctor laoreet sem. Curabitur a feugiat nibh, eget
-                tincidunt tellus. Quisque tristique lobortis dui, efficitur
-                aliquet metus fermentum non. Ut at lectus vitae erat vestibulum
-                congue vel id sapien. Cras consectetur eget mauris et maximus.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum quam eros, sodales eget risus nec, auctor laoreet
-                sem. Curabitur a feugiat nibh, eget tincidunt tellus. Quisque
-                tristique lobortis dui, efficitur aliquet metus fermentum non.
-                Ut at lectus vitae erat vestibulum congue vel id sapien. Cras
-                consectetur eget mauris et maximus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Vestibulum quam eros, sodales eget
-                risus nec, auctor laoreet sem. Curabitur a feugiat nibh, eget
-                tincidunt tellus. Quisque tristique lobortis dui, efficitur
-                aliquet metus fermentum non. Ut at lectus vitae erat vestibulum
-                congue vel id sapien. Cras consectetur eget mauris et maximus
-                fermentum non. Ut at lectus vitae erat vestibulum congue vel id
-                sapien. Cras conqe.{" "}
-              </p>
+              <h3>
+                Participantes do projeto:
+              </h3>
+              <ul>
+                <li>Aleksander Fellype Ferreira Santos</li>
+                <li>Antonio Gabriel Ribeiro Oliveira</li>
+                <li>Bruno Guilherme Martins Augusto</li>
+                <li>Daniel David Lima Costa</li>
+                <li>Eduardo José Ramos Melo</li>
+                <li>Elaine Cristina Madeiro Tenorio De Moraes</li>
+                <li>Emilly Cristhiny Silvino Teles</li>
+                <li>Everson Vinicius Soares Do Nascimento</li>
+                <li>Fabricio Roberto Fernandes Do Rosário </li>
+                <li>Gabriel Ferreira Sarmento</li>
+                <li>Gabryel Brandão Santos Andrade </li>
+                <li>Jessica Dos Santos Ramos</li>
+                <li>João Paulo Nicácio De Sousa</li>
+                <li>José Arnaldo Santos Junior</li>
+                <li>Josef Lucas Da Silva Siqueira </li>
+                <li>Júlia Santos Ramos</li>
+                <li>Liedson Danúbio Oliveira Leite</li>
+                <li>Luan Silva Cardozo Dos Santos</li>
+                <li>Lucas Araujo Lisboa</li>
+                <li>Maria Fernanda Gomes Vieira</li>
+                <li>Pedro Italo Ferreira Silva</li>
+                <li>Ramon Saul Lobato Dos Santos</li>
+                <li>Sancley Walter Dos Santos</li>
+                <li>Vanessa Da Silva Maia</li>
+                <li>Vilker Silva Santos</li>
+                <li>Vitória Maria Dos Santos </li>
+                <li>Yasmin Roberta De Lisboa Silva</li>
+              </ul>
             </div>
           </div>
         </section>
