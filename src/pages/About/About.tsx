@@ -24,11 +24,15 @@ function About() {
 
         <section className={styles.description_content}>
           <div className={styles.penedo_description_container}>
-            <h2>Vem conhecer Penedo</h2>
+            <h2>Sobre Nós</h2>
 
             <div className={styles.description_grid}>
               <p className={styles.description_text_left}>
-              Penedo é uma das cidades mais antigas de Alagoas e do Brasil, localizada às margens do rio São Francisco. Sua origem remonta ao século XVI, quando foi inicialmente habitada por povos indígenas da etnia Tupinambá. A partir de 1560, com a chegada dos portugueses, iniciou-se o processo de colonização. Em 1614, a cidade foi oficialmente fundada por forças militares portuguesas, lideradas por Belchior Dias Morais, com o objetivo de estabelecer um ponto estratégico em São Francisco. Devido à sua localização privilegiada, Penedo tornou-se um importante entreposto comercial e militar. Durante o século XVII, a cidade foi invadida e ocupada pelos holandeses por um curto período. Após sua retomada pelos portugueses, Penedo se consolidou como um centro urbano de destaque na região nordeste. No século XVIII, o município ganhou ainda mais importância com o crescimento do comércio fluvial e da produção de açúcar. A cidade foi elevada à categoria de vila em 1636 e à condição de cidade em 1842. Seu centro histórico é conhecido por sua arquitetura colonial bem preservada, com igrejas barrocas, sobrados e casarões, muitos dos quais construídos por ordens religiosas, como os franciscanos e carmelitas. Penedo teve papel relevante nas lutas pela independência do Brasil e mais tarde durante a República. Atualmente, a cidade é reconhecida como patrimônio histórico nacional pelo IPHAN e atrai turistas interessados em sua rica história, cultura e beleza natural.{" "}
+                O Portal Turismo Penedo é um projeto acadêmico desenvolvido com o propósito de reunir, organizar e divulgar informações confiáveis sobre os principais atrativos turísticos da cidade de Penedo, em Alagoas. Nosso objetivo é facilitar o acesso a conteúdos relevantes para turistas e moradores, promovendo a cidade como um destino rico em história, cultura e hospitalidade.<br/>
+                Através deste site, buscamos mapear e catalogar pontos turísticos, históricos, restaurantes, hotéis e serviços essenciais, oferecendo uma plataforma completa e acessível para quem deseja conhecer ou explorar melhor tudo o que Penedo tem a oferecer.<br/>
+                Além de promover o turismo local, o projeto também pretende contribuir para o desenvolvimento econômico e social da cidade, valorizando os negócios locais e incentivando a divulgação de serviços que atendam tanto visitantes quanto a comunidade penedense.<br/>
+                Seja bem-vindo ao Portal Turismo Penedo — sua fonte de informação confiável sobre a nossa cidade!<br/>
+                {" "}
               </p>
               <img
                 src={ConvertoVerticalImage}
