@@ -78,6 +78,9 @@ const Footer: React.FC = () => {
               <FaPhone className={styles.contactIcon} />
               <a href="tel:+558232511422" className={styles.phone}>(82) 3251-1422</a>
             </p>
+            <p>
+              <Link to="/sobre_nos" className={styles.about}>Sobre nós</Link>
+            </p>
           </address>
         </div>
 {/*
