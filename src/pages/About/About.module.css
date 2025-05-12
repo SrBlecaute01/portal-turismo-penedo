@@ -1,65 +1,30 @@
-.main {
-  margin-top: 3rem;
-
-  & section {
-    & > div {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    & .main_section_header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      & img.banner_img {
-        height: 175px;
-      }
-
-      & p {
-        max-width: 566px;
-        text-align: justify;
-        font-family: var(--family-roboto);
-        font-size: var(--font-size-medium);
-        font-weight: var(--font-weight-regular);
-        color: var(--text-dark);
-      }
-    }
-
-    & .main_section_highlight {
-      margin-top: 3rem;
-      margin-bottom: 4rem;
-    }
-
-    & .penedo_description_container {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-
-      & h2 {
-        font-size: var(--font-size-large);
-        font-family: var(--family-roboto);
-        font-weight: var(--font-weight-semibold);
-        color: var(--text-dark);
-        margin-bottom: 2rem;
-      }
-
-      & .description_grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-
-        margin-bottom: 2rem;
-      }
-    }
-  }
+.about_container{
+  min-height: 100vh;
 }
 
-.description_content {
-  background: var(--bg-gray-light);
+.description_container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
-.description_text_left {
-  grid-column: 1 / span 3;
+h2 {
+  font-size: var(--font-size-large);
+  font-family: var(--family-roboto);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: var(--text-dark);
+  font-size: var(--font-size-medium);
+  font-family: var(--family-roboto);
+  font-weight: var(--font-weight-semibold);
+}
+
+.description_text p, ul, li{
   font-size: 24px;
   font-weight: 400;
   font-family: var(--family-roboto);
@@ -67,89 +32,5 @@
   color: var(--text-dark);
 }
 
-.description_image_right {
-  grid-column: 4 / span 1;
-}
-.description_image_left {
-  grid-column: 1 / span 1;
-}
 
-.description_text_right {
-  grid-column: 2 / span 3;
-  font-size: 24px;
-  font-weight: 400;
-  font-family: var(--family-roboto);
-  text-align: justify;
-  color: var(--text-dark);
-}
-
-.splide__slide {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.slide_widget {
-  border-radius: 10px;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  height: auto;
-}
-
-.text_overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 0;
-  font-size: 24px;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-
-  & h3 {
-    color: var(--white);
-    font-family: var(--family-roboto);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-light);
-    margin-bottom: 0.4rem;
-    padding-left: 20px;
-  }
-
-  & h2 {
-    color: var(--white);
-    font-family: var(--family-roboto);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-black);
-    padding-left: 20px;
-  }
-}
-
-.slide_widget_1 {
-  grid-column: 1 / span 3;
-  grid-row: span 1;
-  background-image: url("../../assets/carousel/home/penedo-wide.png");
-}
-.slide_widget_2 {
-  grid-column: span 1;
-  grid-row: span 1;
-  background-image: url("../../assets/carousel/home/convento.png");
-}
-.slide_widget_3 {
-  grid-column: 1 / span 1;
-  grid-row: span 1;
-  background-image: url("../../assets/carousel/home/porto-balsa.png");
-}
-.slide_widget_4 {
-  grid-column: 2 / span 2;
-  grid-row: span 1;
-  background-image: url("../../assets/carousel/home/sao-gonsalo.png");
-}
-.slide_widget_5 {
-  grid-column: span 1;
-  grid-row: span 1;
-  background-image: url("../../assets/carousel/home/rua.png");
-}
 
