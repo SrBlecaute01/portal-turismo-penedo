@@ -3,6 +3,7 @@ import {lazy, Suspense} from "react";
 import Loading from "../components/Loading";
 
 const HomePage = lazy(() => import("../pages/Home"))
+const AboutPage = lazy(() => import("../pages/About"))
 const HotelsPage = lazy(() => import("../pages/Hotels"))
 const RestaurantsPage = lazy(() => import("../pages/Restaurants"))
 const EventsPage = lazy(() => import("../pages/Events"))
@@ -17,6 +18,7 @@ function AppRouter() {
       <Suspense fallback={<Loading/>}>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
+          <Route path="/sobre_nos" element={<AboutPage/>}/>
           <Route path="/hoteis" element={<HotelsPage/>}/>
           <Route path="/restaurantes" element={<RestaurantsPage/>}/>
           <Route path="/eventos" element={<EventsPage/>}/>
