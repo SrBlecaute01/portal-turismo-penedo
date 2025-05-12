@@ -108,6 +108,8 @@
 
 .about {
   color: #5A5656;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .linksList a::after {
