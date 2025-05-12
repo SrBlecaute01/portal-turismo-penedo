@@ -21,3 +21,15 @@
 .eventsItems {
     padding: 32px;
 }
+
+@media only screen and (max-width: 960px) {
+    .eventsContainer {
+        grid-template-columns: 1fr; /* Uma coluna */
+        justify-items: center;      /* Centraliza os cards na coluna */
+        padding: 0 8px;            /* Espaço lateral para não colar na borda */
+    }
+
+    .eventsItems {
+        padding: 16px; /* Reduz o padding para telas menores */
+    }
+}
