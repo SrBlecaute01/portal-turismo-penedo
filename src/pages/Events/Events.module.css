@@ -1,26 +1,5 @@
 .rootContainer {
     min-height: 100vh;
-  }
-
-.carouselContainer{
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.carouselText {
-    font-size: 64px;
-    font-weight: bold;
-    user-select: none;
-    color: var(--text-white);
-
-    z-index: 2;
-    position: absolute;
-
-    margin-left: 10%;
-    margin-bottom: 8%;
-
-    align-self: flex-end;
 }
 
 .eventsContainer {
@@ -35,8 +14,22 @@
 
     margin-top: 2%;
     margin-bottom: 2%;
+
+    overflow-x: hidden;
 }
 
 .eventsItems {
     padding: 32px;
+}
+
+@media only screen and (max-width: 960px) {
+    .eventsContainer {
+        grid-template-columns: 1fr; /* Uma coluna */
+        justify-items: center;      /* Centraliza os cards na coluna */
+        padding: 0 8px;            /* Espaço lateral para não colar na borda */
+    }
+
+    .eventsItems {
+        padding: 16px; /* Reduz o padding para telas menores */
+    }
 }

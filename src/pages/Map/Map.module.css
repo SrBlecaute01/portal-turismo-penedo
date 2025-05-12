@@ -6,60 +6,60 @@
 
 .filterContainer {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
+  width: 45%;
   z-index: 10;
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
   background-color: white;
-  flex-wrap: wrap; /* Permite que os elementos quebrem em várias linhas */
-  justify-content: center;
-  max-width: 90%; /* Limita a largura em telas grandes */
-  width: max-content;
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.395);
+  padding: 10px;
+  border-radius: 8px;
 }
 
+
+
 .searchInput {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  outline: none;
-  width: 200px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.23);
 }
 
 .filterButton {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  background: white;
-  color: #333;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 14px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .filterButton:hover {
-  background-color: #f3f3f3;
+  background-color: #f5f5f5;
 }
 
 .activeFilter {
-  background-color: #4285F4;
-  color: white;
-  border-color: #4285F4;
+  background-color: #e6f7ff;
+  border-color: #1890ff;
+  color: #1890ff;
 }
 
 .mobileMenuButton {
-  display: none; /* Oculto por padrão, visível apenas em telas pequenas */
+  display: none;
   position: absolute;
   top: 80px;
   right: 20px;
@@ -91,13 +91,81 @@
   z-index: 20;
 }
 
+.filterButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.filterButtons button {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.207);
+}
+
+.filterDropdownContainer {
+  position: relative;
+  display: none;
+}
+
+.filterDropdownButton {
+  padding: 10px 15px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.filterDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 4px;
+  overflow: hidden;
+  display: none;
+}
+
+.filterDropdownMenu.open {
+  display: block;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdownItem.active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
 /* Media queries para responsividade */
 @media (max-width: 768px) {
   .filterContainer {
-    top: 80px; /* Ajuste para não sobrepor a navbar em dispositivos móveis */
-    padding: 8px;
-    max-width: 95%;
-    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchArea {
+    width: 100%;
   }
 
   .searchInput {
@@ -109,6 +177,16 @@
   .filterButton {
     padding: 6px 12px;
     font-size: 12px;
+  }
+
+  .filterButtons {
+    display: none;
+    justify-content: center;
+  }
+
+  .filterDropdownContainer {
+    display: block;
+    margin-top: 10px;
   }
 }
 
@@ -140,5 +218,13 @@
 
   .mobileMenuButton {
     display: flex;
+  }
+
+  .filterButtons {
+    display: none;
+  }
+
+  .filterDropdownContainer {
+    display: block;
   }
 }

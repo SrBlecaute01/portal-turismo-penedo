@@ -18,7 +18,7 @@ const hoteis =[
     description: 
       <span>
         Situado na Rodovia AL-110, nº 195, bairro Santa Luzia, em Penedo (AL), o Hotel Encantos de Penedo é uma hospedagem que combina conforto e praticidade.<br/>
-        Os quartos são amplos, higienizados e equipados com ar-condicionado, TV de tela plana, frigobar e banheiro privativo. O café da manhã é um dos destaques, sendo variado e incluindo tapiocas e sanduíches preparados na hora.\n <br/>
+        Os quartos são amplos, higienizados e equipados com ar-condicionado, TV de tela plana, frigobar e banheiro privativo. O café da manhã é um dos destaques, sendo variado e incluindo tapiocas e sanduíches preparados na hora. <br/>
         O hotel oferece estacionamento gratuito, Wi-Fi gratuito e serviço de quarto, com opção de jantar no apartamento. O check-in é a partir das 14h e o check-out até às 12h. A localização estratégica permite fácil acesso a mercados, lojas e postos de gasolina. A equipe é conhecida pela cordialidade e prestatividade, tornando a estadia ainda mais agradável. Ideal para viajantes que buscam tranquilidade e boa localização em Penedo.
       </span>,
     image: hotelImages[0].default
@@ -106,12 +106,12 @@ const hoteis =[
 function Hotels() {
 
   /* Card "Array" for current placeholding */
-  let cards_to_scroll = (hoteis.map(hotel => (
+  const cards_to_scroll = (hoteis.map(hotel => (
     <RatingCard
       text={hotel.title}
       image={{
         title: "Imagem do " + hotel.title,
-        rating_value: Boolean(hotel.rating_value) ? hotel.rating_value : undefined,
+        rating_value: hotel.rating_value ? hotel.rating_value : undefined,
         image: hotel.image
       }}
       to={hotel.to}

@@ -7,11 +7,12 @@
     font-size: 32px;
     font-weight: bold;
     padding-top: 20px;
+    margin: 20px;
 }
 
 .card_container{
-    padding: 30px;
     width: 251px;
+    padding: 30px;
 
     --rating-card-height: 280px;
     --rating-card-width: 251px;

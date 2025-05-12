@@ -5,7 +5,7 @@ import {
   StandaloneSearchBox
 } from '@react-google-maps/api';
 import Navbar from '../../components/Navbar';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
 import styles from './Map.module.css';
 import { Location, Place, MapComponentProps } from './types';
 import Footer from '../../components/Footer/Footer';
@@ -31,6 +31,7 @@ const Map: React.FC<MapComponentProps> = ({
   const [zoom, setZoom] = useState<number>(initialZoom);
   const [selectedFilter, setSelectedFilter] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isFilterDropDownOpen, setFilterDropdownOpen] = useState<boolean>(false);
 
   const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
@@ -91,6 +92,12 @@ const Map: React.FC<MapComponentProps> = ({
   const applyFilter = (filterId: string) => {
     if (!isLoaded || !mapRef.current) return;
 
+    if (selectedFilter === filterId) {
+      setSelectedFilter('');
+      setMarkers([]);
+      return;
+    }
+
     setSelectedFilter(filterId);
 
     if (searchBoxRef.current) {
@@ -130,6 +137,20 @@ const Map: React.FC<MapComponentProps> = ({
     setSearchQuery(e.target.value);
   };
 
+  const toggleFilterDropdown = () => {
+    setFilterDropdownOpen(!isFilterDropDownOpen);
+  };
+
+  const handleFilterSelect = (filterId: string) => {
+    applyFilter(filterId);
+    setFilterDropdownOpen(false); // Fecha o dropdown após selecionar
+  };
+
+  const getSelectedFilterLabel = () => {
+    const selected = filterOptions.find(filter => filter.id === selectedFilter);
+    return selected ? selected.label : 'Filtrar por';
+  };
+
   return (
     <div className={styles.mapContainer}>
       <Navbar />
@@ -145,33 +166,65 @@ const Map: React.FC<MapComponentProps> = ({
           options={mapOptions}
         >
           <div className={styles.filterContainer}>
-            <StandaloneSearchBox
-              onLoad={onSearchBoxLoad}
-              onPlacesChanged={onPlacesChanged}
-              bounds={new google.maps.LatLngBounds(
-                new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
-                new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
-              )}
-            >
-              <input
-                type="text"
-                placeholder="Pesquisar em Penedo..."
-                value={searchQuery}
-                onChange={handleSearch}
-                className={styles.searchInput}
-              />
-            </StandaloneSearchBox>
-
-            {filterOptions.map(filter => (
-              <button
-                key={filter.id}
-                onClick={() => applyFilter(filter.id)}
-                className={`${styles.filterButton} ${selectedFilter === filter.id ? styles.activeFilter : ''}`}
+            {/* Área de busca à esquerda */}
+            <div className={styles.searchArea}>
+              <StandaloneSearchBox
+                onLoad={onSearchBoxLoad}
+                onPlacesChanged={onPlacesChanged}
+                bounds={new google.maps.LatLngBounds(
+                  new google.maps.LatLng(PENEDO_COORDINATES.lat - 0.05, PENEDO_COORDINATES.lng - 0.05),
+                  new google.maps.LatLng(PENEDO_COORDINATES.lat + 0.05, PENEDO_COORDINATES.lng + 0.05)
+                )}
               >
-                <FaMapMarkerAlt />
-                {filter.label}
-              </button>
-            ))}
+                <input
+                  type="text"
+                  placeholder="Pesquisar em Penedo..."
+                  value={searchQuery}
+                  onChange={handleSearch}
+                  className={styles.searchInput}
+                />
+              </StandaloneSearchBox>
+            </div>
+
+            <div className={styles.filtersArea}>
+              <div className={styles.filterButtons}>
+                {filterOptions.map(filter => (
+                  <button
+                    key={filter.id}
+                    onClick={() => applyFilter(filter.id)}
+                    className={`${styles.filterButton} ${selectedFilter === filter.id ? styles.activeFilter : ''}`}
+                  >
+                    <FaMapMarkerAlt />
+                    {filter.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Dropdown para telas menores (responsivo) */}
+              <div className={styles.filterDropdownContainer}>
+                <button
+                  className={styles.filterDropdownButton}
+                  onClick={toggleFilterDropdown}
+                >
+                  <FaMapMarkerAlt />
+                  {getSelectedFilterLabel()}
+                  <FaChevronDown />
+                </button>
+
+                <div className={`${styles.filterDropdownMenu} ${isFilterDropDownOpen ? styles.open : ''}`}>
+                  {filterOptions.map(filter => (
+                    <div
+                      key={filter.id}
+                      onClick={() => handleFilterSelect(filter.id)}
+                      className={`${styles.dropdownItem} ${selectedFilter === filter.id ? styles.active : ''}`}
+                    >
+                      <FaMapMarkerAlt />
+                      {filter.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {markers.map((marker) => (
