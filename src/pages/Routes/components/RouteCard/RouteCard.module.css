@@ -7,6 +7,12 @@
 
     background: #fff;
     overflow: hidden;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
 }
 
 .cardImage {

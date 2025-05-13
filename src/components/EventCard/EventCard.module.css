@@ -1,5 +1,5 @@
 .cardContainer {
-    width: 382px;
+    width: 345px;
     height: 430px;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -67,5 +67,4 @@
 .cardDescription {
     font-size: 14px;
     font-weight: 400;
-    text-align: justify;
 }
