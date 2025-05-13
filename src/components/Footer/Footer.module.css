@@ -110,13 +110,14 @@
   color: #5A5656;
   font-size: 1.1rem;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .linksList a::after {
   content: '';
   position: absolute;
   width: 0;
-  height: a1px;
+  height: 1px;
   bottom: -2px;
   left: 0;
   background-color: #1D85D9;

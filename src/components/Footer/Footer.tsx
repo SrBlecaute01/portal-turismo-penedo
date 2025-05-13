@@ -18,14 +18,16 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerBlock}>
-          <h3 className={styles.blockTitle}>Sobre Penedo</h3>
-          <div className={styles.logoContainer}>
-            <img
-              src={logoImg}
-              alt="Logo Portal Turismo Penedo"
-              className={styles.logo}
-            />
-          </div>
+          <Link to="/sobre" className={styles.about}>
+            <h3 className={styles.blockTitle}>Sobre nós</h3>
+            <div className={styles.logoContainer}>
+              <img
+                src={logoImg}
+                alt="Logo Portal Turismo Penedo"
+                className={styles.logo}
+              />
+            </div>
+          </Link>
           <p className={styles.blockText}>
             Portal dedicado ao turismo na histórica cidade de Penedo, Alagoas.
             Conheça os pontos turísticos, gastronomia, hospedagem e toda a
@@ -78,9 +80,6 @@ const Footer: React.FC = () => {
               <FaPhone className={styles.contactIcon} />
               <a href="tel:+558232511422" className={styles.phone}>(82) 3251-1422</a>
             </p>
-            <p>
-              <Link to="/sobre_nos" className={styles.about}>Sobre nós</Link>
-            </p>
           </address>
         </div>
 {/*
@@ -109,10 +108,12 @@ const Footer: React.FC = () => {
           &copy; {currentYear} Portal Turismo Penedo. Todos os direitos
           reservados.
         </p>
+{/*
         <p>
           <Link to="/privacidade">Política de Privacidade</Link> |
           <Link to="/termos"> Termos de Uso</Link>
         </p>
+        */}
       </div>
     </footer>
   );
