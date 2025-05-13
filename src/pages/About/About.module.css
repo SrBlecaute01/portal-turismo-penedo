@@ -9,25 +9,27 @@
   padding-bottom: 4rem;
 }
 
-h2 {
+.description_container h2 {
   font-size: var(--font-size-large);
-  font-family: var(--family-roboto);
+  font-family: var(--family-roboto), sans-serif;
   font-weight: var(--font-weight-semibold);
   color: var(--text-dark);
   margin-bottom: 2rem;
 }
 
-h3 {
+.description_container h3 {
   color: var(--text-dark);
   font-size: var(--font-size-medium);
-  font-family: var(--family-roboto);
+  font-family: var(--family-roboto), sans-serif;
   font-weight: var(--font-weight-semibold);
 }
 
-.description_text p, ul, li{
+.description_text p,
+.description_text ul,
+.description_text li {
   font-size: 24px;
   font-weight: 400;
-  font-family: var(--family-roboto);
+  font-family: var(--family-roboto), sans-serif;
   text-align: justify;
   color: var(--text-dark);
 }
