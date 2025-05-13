@@ -13,7 +13,9 @@ function Home() {
     perMove: 1,
     focus: "center",
     gap: "1rem",
-    height: 560,
+    // height: 560,
+    // height: 'auto',
+    arrows: false,
   };
 
   return (
@@ -36,7 +38,7 @@ function Home() {
         <section>
           <div className={styles.main_section_highlight + " home_slide_grid_container"}>
             <Splide
-              className={styles.slide_grid_container}
+              className={ +styles.slide_grid_container}
               options={carrosselOptions}
             >
               <SplideSlide className={styles.splide__slide}>
@@ -83,39 +85,6 @@ function Home() {
                 alt="Penedo"
                 className={styles.description_image_right}
               />
-            </div>
-            <div className={styles.description_grid}>
-              <img
-                src={ConvertoVerticalImage}
-                alt="Penedo"
-                className={styles.description_image_left}
-              />
-              <p className={styles.description_text_right}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum quam eros, sodales eget risus nec, auctor laoreet
-                sem. Curabitur a feugiat nibh, eget tincidunt tellus. Quisque
-                tristique lobortis dui, efficitur aliquet metus fermentum non.
-                Ut at lectus vitae erat vestibulum congue vel id sapien. Cras
-                consectetur eget mauris et maximus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Vestibulum quam eros, sodales eget
-                risus nec, auctor laoreet sem. Curabitur a feugiat nibh, eget
-                tincidunt tellus. Quisque tristique lobortis dui, efficitur
-                aliquet metus fermentum non. Ut at lectus vitae erat vestibulum
-                congue vel id sapien. Cras consectetur eget mauris et maximus.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum quam eros, sodales eget risus nec, auctor laoreet
-                sem. Curabitur a feugiat nibh, eget tincidunt tellus. Quisque
-                tristique lobortis dui, efficitur aliquet metus fermentum non.
-                Ut at lectus vitae erat vestibulum congue vel id sapien. Cras
-                consectetur eget mauris et maximus. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Vestibulum quam eros, sodales eget
-                risus nec, auctor laoreet sem. Curabitur a feugiat nibh, eget
-                tincidunt tellus. Quisque tristique lobortis dui, efficitur
-                aliquet metus fermentum non. Ut at lectus vitae erat vestibulum
-                congue vel id sapien. Cras consectetur eget mauris et maximus
-                fermentum non. Ut at lectus vitae erat vestibulum congue vel id
-                sapien. Cras conqe.{" "}
-              </p>
             </div>
           </div>
         </section>

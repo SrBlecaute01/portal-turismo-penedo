@@ -5,6 +5,10 @@
     & > div {
       max-width: 1300px;
       margin: 0 auto;
+
+      @media (max-width: 820px) {
+        flex-direction: column;
+      }
     }
 
     & .main_section_header {
@@ -14,6 +18,9 @@
 
       & img.banner_img {
         height: 175px;
+        @media (max-width: 820px) {
+          height: 100px;
+        }
       }
 
       & p {
@@ -23,6 +30,11 @@
         font-size: var(--font-size-medium);
         font-weight: var(--font-weight-regular);
         color: var(--text-dark);
+        @media (max-width: 820px) {
+          font-size: var(--font-size-small);
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
       }
     }
 
@@ -41,6 +53,10 @@
         font-weight: var(--font-weight-semibold);
         color: var(--text-dark);
         margin-bottom: 2rem;
+        @media (max-width: 820px) {
+          font-size: var(--font-size-medium);
+          padding-left: 2rem;
+        }
       }
 
       & .description_grid {
@@ -49,6 +65,14 @@
         gap: 1rem;
 
         margin-bottom: 2rem;
+
+        @media (max-width: 820px) {
+          /* flex-direction: column; */
+          grid-template-columns: repeat(1, 1fr);
+          padding-right: 2rem;
+          padding-left: 2rem;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -65,10 +89,23 @@
   font-family: var(--family-roboto);
   text-align: justify;
   color: var(--text-dark);
+  @media (max-width: 820px) {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    align-items: center;
+    font-size: 16px;
+  }
 }
 
 .description_image_right {
   grid-column: 4 / span 1;
+  @media (max-width: 820px) {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: center;
+    height: 400px;
+    width: 300px;
+  }
 }
 .description_image_left {
   grid-column: 1 / span 1;
@@ -87,6 +124,15 @@
   display: grid !important;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  height: 560px;
+  @media (max-width: 820px) {
+    /* grid-template-columns: repeat(2, 1fr); */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: auto;
+    gap: 1rem;
+    justify-content: space-between;
+  }
 }
 .slide_widget {
   border-radius: 10px;
@@ -94,6 +140,11 @@
   background-size: cover;
 
   height: auto;
+
+  @media (max-width: 820px) {
+    height: 200px;
+    width: 100%;
+  }
 }
 
 .text_overlay {
@@ -124,6 +175,10 @@
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-black);
     padding-left: 20px;
+    @media (max-width: 520px) {
+      font-size: var(--font-size-xsmall);
+      padding-left: 10px;
+    }
   }
 }
 
@@ -131,25 +186,45 @@
   grid-column: 1 / span 3;
   grid-row: span 1;
   background-image: url("../../assets/carousel/home/penedo-wide.png");
+  @media (max-width: 820px) {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
 }
 .slide_widget_2 {
   grid-column: span 1;
   grid-row: span 1;
   background-image: url("../../assets/carousel/home/convento.png");
+  @media (max-width: 820px) {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+  }
 }
 .slide_widget_3 {
   grid-column: 1 / span 1;
   grid-row: span 1;
   background-image: url("../../assets/carousel/home/porto-balsa.png");
+  @media (max-width: 820px) {
+  grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
+  }
 }
 .slide_widget_4 {
   grid-column: 2 / span 2;
   grid-row: span 1;
   background-image: url("../../assets/carousel/home/sao-gonsalo.png");
+  @media (max-width: 820px) {
+    grid-column: 1 / span 2;
+    grid-row: span 1;
+  }
 }
 .slide_widget_5 {
   grid-column: span 1;
   grid-row: span 1;
   background-image: url("../../assets/carousel/home/rua.png");
+  @media (max-width: 820px) {
+    grid-column: 3 / span 2;
+    grid-row: span 1;
+  }
 }
 

@@ -18,7 +18,7 @@ function AppRouter() {
       <Suspense fallback={<Loading/>}>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
-          <Route path="/sobre_nos" element={<AboutPage/>}/>
+          <Route path="/sobre" element={<AboutPage/>}/>
           <Route path="/hoteis" element={<HotelsPage/>}/>
           <Route path="/restaurantes" element={<RestaurantsPage/>}/>
           <Route path="/eventos" element={<EventsPage/>}/>
