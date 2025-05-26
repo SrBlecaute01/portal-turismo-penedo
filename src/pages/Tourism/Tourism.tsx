@@ -19,6 +19,27 @@ console.log(tourismImagesMap);
 const tourismCarousel = Object.values(import.meta.glob('../../assets/carousel/tourism/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
 const tourismContent = [
   {
+    id: 43,
+    title: "Galpão Zureta",
+    to: "#",
+    description:
+      <span>
+        O Galpão Zureta é um espaço cultural e turístico localizado no Centro Histórico de Penedo, Alagoas. O local abriga obras de mais de 40 artistas locais, promovendo a cultura penedense e regional. Além de funcionar como loja de artesanato, o Galpão Zureta conta com uma fábrica própria, onde realiza a produção de materiais com recorte a laser, oferecendo peças personalizadas e inovadoras. Sua importância está na promoção da cultura penedense, geração de renda e valorização do património histórico do município.
+        <br/><br/>
+        Para acompanhar as novidades e conhecer mais sobre o trabalho realizado, acesse o Instagram oficial
+        <a
+          href="https://www.instagram.com/galpaozuretaa"
+          target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram"
+          style={{
+            color: "#1D85D9"
+          }}
+        >
+          &nbsp;@galpaozuretaa
+        </a>
+      </span>
+  },
+  {
     id: 0,
     title: "Mercado Público",
     to: "#",
