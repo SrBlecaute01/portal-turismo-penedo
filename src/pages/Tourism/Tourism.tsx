@@ -5,12 +5,16 @@ import styles from "./Tourism.module.css";
 import Footer from "../../components/Footer/Footer.tsx";
 import SliderCard from "../../components/SliderCards/SliderCards.tsx";
 
-const tourismImages = Object.values(import.meta.glob('../../assets/tourism/*.{png,jpg,jpeg,svg}', { eager: true })) as { default: string }[];
+const tourismImages = import.meta.glob('../../assets/tourism/*.{png,jpg,jpeg,svg}', { eager: true });
 const tourismImagesMap = new Map<string, string>(
-  tourismImages.map((module) => {
-    const path = module.default;
-    const parts = path.split('/');
-    return [parts[parts.length - 1].split("-")[0].replace(/\D/g, ""), path];
+  Object.entries(tourismImages).map(([key, value]) => {
+    const module = value as { default: string };
+
+    const filePath = key.split('/');
+    const fileName = filePath[filePath.length - 1];
+    const fileIdentifier = fileName.split("-")[0].replace(/\D/g, "");
+
+    return [fileIdentifier, module.default];
   })
 );
 
