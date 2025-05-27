@@ -26,6 +26,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_ADMIN }}@github.com/SrBlecaute01/portal-turismo-penedo.git
 
       - name: Sync Develop to Main
         run: |
