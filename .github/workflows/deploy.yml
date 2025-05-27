@@ -31,12 +31,8 @@ jobs:
       - name: Sync Develop to Main
         run: |
           git fetch origin
-          git checkout develop
-          git pull origin develop
-          git rebase origin/main
-
           git checkout main
-          git reset --hard develop
+          git reset --hard origin/develop
           git push origin main --force
 
   build:
