@@ -30,9 +30,14 @@ jobs:
 
       - name: Sync Develop to Main
         run: |
+          git fetch origin
+          git checkout develop
+          git pull origin develop
+          git rebase origin/main
+
           git checkout main
-          git pull
-          git merge origin/develop --no-edit
+          git pull origin main
+          git merge origin/develop --ff-only
           git push origin main
 
   build:
