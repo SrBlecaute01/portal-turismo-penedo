@@ -45,7 +45,7 @@ jobs:
     needs: ['sync']
     uses: ./.github/workflows/build.yml
     with:
-      ref: main
+      ref: 'main'
 
   deploy:
     name: Deploy
