@@ -36,9 +36,8 @@ jobs:
           git rebase origin/main
 
           git checkout main
-          git pull origin main
-          git merge origin/develop --ff-only
-          git push origin main
+          git reset --hard develop
+          git push origin main --force
 
   build:
     name: Build
