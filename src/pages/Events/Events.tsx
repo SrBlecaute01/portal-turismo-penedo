@@ -25,10 +25,10 @@ const events = [
     days: 15
   },
   {
-    title: "Lavagem do Beco da Preguiça",
+    title: "Lavagem do Beco",
     to: "#",
     month: "MAR",
-    description: "A Lavagem do Beco da Preguiça é uma das mais tradicionais festividades de Penedo, Alagoas, sendo celebrada há mais de 40 anos.",
+    description: "A Lavagem do Beco é uma das mais tradicionais festividades de Penedo, Alagoas, sendo celebrada há mais de 40 anos.",
     image: images[6].default,
     days: 4
   },
