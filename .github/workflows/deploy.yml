@@ -13,8 +13,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    name: Build Project
+    uses: ./.github/workflows/build.yml
+    with:
+      ref: 'develop'
+
   sync:
     name: Sync Branches
+    needs: [ 'build' ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,16 +42,9 @@ jobs:
           git reset --hard origin/develop
           git push origin main --force
 
-  build:
-    name: Build
-    needs: ['sync']
-    uses: ./.github/workflows/build.yml
-    with:
-      ref: 'main'
-
   deploy:
-    name: Deploy
-    needs: ['build']
+    name: Deploy to Github Pages
+    needs: ['sync', 'build']
 
     environment:
       name: github-pages
